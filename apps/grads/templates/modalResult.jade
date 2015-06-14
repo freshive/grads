@@ -1,0 +1,28 @@
+.row
+	if badge && badge.BadgeNiceName
+		img.badge(src="images/badges/#{badge.BadgeName}.png")
+	.large-12.columns.modal__description
+
+		h3.modal__resultheading
+			| That was impressive
+
+		if badge && badge.BadgeNiceName
+			h4.modal__resultdescription 
+				| &raquo; You've received the 
+				b #{badge.BadgeNiceName} Badge 
+				| worth 
+				b #{badge.Points} 
+				| points and 
+				b #{challenge.ReceivedPoints} 
+				| points for your epic performance &laquo;
+
+		else
+			h4.modal__resultdescription 
+				| &raquo; You've received 
+				b #{challenge.ReceivedPoints} 
+				| points for your epic performance &raquo;
+
+		.action-btns
+			button.btn.btn--resume Resume &raquo;
+
+	

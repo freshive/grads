@@ -1,0 +1,17 @@
+.q-and-a__question
+	img(src="images/commerce/#{question.question}.png")
+
+ul.q-and-a__answers
+	each val, key in question.answers
+		li.q-and-a__answer(data-answer="#{val}")
+			img(src="images/commerce/#{val}.png")
+
+			h6.q-and-a__answer__heading=key
+
+.action-btns
+	button(disabled="disabled").btn.btn--submit 
+		| Submit 
+		span.questions-progress=progress 
+		| /
+		span.questions-left=totalQuestions 
+		| &raquo;

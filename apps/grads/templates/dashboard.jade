@@ -1,0 +1,48 @@
+.curtain.curtain--top.curtain--show.curtain--animation
+.curtain.curtain--bottom.curtain--show.curtain--off-white.curtain--animation
+
+.page__view__content.dashboard
+
+	.title.title--home
+		h2.font--light &raquo; #{thinkerType} &laquo;
+		h5.title__sub.font--thin ... here be the challenges ...
+		
+		p.title__explanation(style='white-space:pre;')
+			| You have our permission to do all the challenges at random
+			| (we know locking them won't keep you out anyway)
+
+	.row.logos.challenge-icons
+		each challenge in model.Challenges
+			mixin challenge(played, started)
+				div(class='#{attributes.class} #{played ? "challenge--completed" : ""} #{started ? "challenge--started" : ""}')
+					block
+			
+			+challenge(challenge.Played, challenge.ChallengeStarted)(class= 'large-2 columns logos__animation challenge-icon')
+				.logo(data-challenge="#{challenge.Order}")
+					.logo-image
+					.logo__shadow.logo__shadow--dark.logo__shadow--top
+					.logo__shadow.logo__shadow--bottom
+				h6.logo-heading.font--italic #{challenge.Name} &raquo;
+				h4.logo-heading #{challenge.TotalChallengePoints} pts
+
+	.dashboard-footer
+		p.terms.font--light *Welcome to LOi, the game where the rules are made up but the points still matter.
+		
+		.show-leaderboard.icon-modal
+			img(src="images/leaderboard.png")
+			h6.icon-modal__heading Top 10 &raquo;
+
+		.show-badges.icon-modal
+			img(src="images/badges.png")
+			h6.icon-modal__heading Badges &raquo;
+
+	.overlay
+
+	.modal
+		.modal__close
+			h3.modal__close__btn x
+		
+		.modal__content
+
+a.btn.btn--about(href="#about") &laquo; About 
+				

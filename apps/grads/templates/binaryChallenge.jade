@@ -1,0 +1,48 @@
+div.locks
+	img(src="images/lock-open.png").locks__lock
+	img(src="images/lock-open.png").locks__lock
+	img(src="images/lock-open.png").locks__lock
+.row
+	.large-2.columns.binary__tables
+		ul.binary__table.binary__table--left
+			each val, key in hashLeft
+				li(data-hashresult="#{hashLeft[key]}", data-hashkey="#{key}") 
+					| #{key}:#{hashLeft[key]}
+
+	.large-8.columns.binary__content
+		
+		h3.modal__content__heading.modal__content__heading--binary
+			| Use the cyphers and translate the code
+		
+		p.modal__content__subheading--binary 
+			| The content consists of a binary code where the spaces between the words are missing.
+
+		ol.modal__explanation--binary
+			li 
+				strong Click and drag a block over the binary you want to select. 
+					span.font--light (Almost like the little squares you drag on your desktop when you get bored)
+			li 
+				strong Click on the highlighted cyphers on the sides if you’re happy.
+
+		h5.binary__question
+			span.binary__question__selectable=question
+
+		.binary__answers
+			each answer in answers
+				.binary__answers__word
+					each letter in answer
+						.binary__answers__word__input
+							.binary__answers__word__input__remove
+								h6.modal__close__btn x
+							input(type="text", maxlength="1", disabled="true")
+
+		.action-btns
+			button(disabled="disabled").btn.btn--submit Submit 1/2 &raquo;
+	
+	.large-2.columns.binary__tables
+		ul.binary__table.binary__table--right
+			each val, key in hashRight
+				li(data-hashresult="#{hashRight[key]}", data-hashkey="#{key}") 
+					| #{key}:#{hashRight[key]}
+
+	

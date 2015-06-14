@@ -1,0 +1,43 @@
+div.locks
+	img(src="images/lock-open.png").locks__lock
+	img(src="images/lock-open.png").locks__lock
+	img(src="images/lock-open.png").locks__lock
+.row
+	
+
+	.large-12.columns.code__content
+
+		h4.modal__content__heading.modal__content__heading--code
+			| &raquo; Write a piece of code that takes no input and produces a copy of its own source code as its only output using the language of the web. &laquo;
+
+		p.modal__content__subheading--code 
+			| The shorter your code, the more points you will receive.
+
+		.code-input
+
+			.code-input__content.cf
+				h3.code-content__heading=title
+				
+				textarea.code__input 
+
+				div.code__result
+
+				#sandbox
+
+				.action-btns
+					button.btn.btn--run.executr-switch(data-code-type="javascript") Run Code &laquo;
+					button(disabled="disabled").btn.btn--submit 
+						| Submit &raquo;
+
+
+		.clock-container
+			.clock
+				.top
+				.right
+				.bottom
+				.left
+				.center
+				.shadow
+				.hour
+				.minute
+				.second

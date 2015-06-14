@@ -1,0 +1,19 @@
+h3(class="modal__content__heading modal__content__heading--path modal__content__heading__#{gameNumber}")=description
+p.modal__content__subheading--path 
+	| Click on the blocks to select and begin your path. Hint, start at start. 
+
+.path-shadow
+div(class="path__challenge path-challenge__#{gameNumber}")
+	h6.position.position-start start
+	h6.position.position-finish finish
+	table.path-challenge__table
+		each row in grid
+			tr.path-challenge__grid-items
+				each column in row
+					td.path-challenge__grid-item.path-challenge__grid-item--play=column
+
+	.action-btns
+		button.btn.btn--reset 
+			| Reset &raquo;
+		button(disabled="disabled").btn.btn--submit 
+			| Submit #{gameNumber} / 3 &raquo;

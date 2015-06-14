@@ -1,0 +1,7 @@
+h2.modal__content__heading &raquo; Badges &laquo; 
+
+ul.leaderboard__list
+	each badge in collection
+		li 
+			img(src="images/badges/#{badge.BadgeName}-w.png")
+			p.badge-name #{badge.BadgeNiceName}

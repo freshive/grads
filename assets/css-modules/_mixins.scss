@@ -1,0 +1,54 @@
+/* ----------------------------------------
+ * @Font-Face Mixin
+ -- mixin to generate web fonts
+-------------------------------------------*/
+@mixin font-face($fonts, $path) {
+	@each $font-face in $fonts  {
+	    @font-face {
+			font: {
+				family: $font-face;
+				style: normal;
+				weight: normal;
+			}
+			src: url('#{$path}#{$font-face}.eot') format('eot'), 
+				 url('#{$path}#{$font-face}.woff') format('woff'), 
+				 url('#{$path}#{$font-face}.ttf')  format('truetype'),
+				 url('#{$path}#{$font-face}.svg#' + $font-face) format('svg');
+		}
+	}
+}
+
+/* ----------------------------------------
+ * CSS3 Mixin
+ -- cross browser CSS3 vendor properties
+-------------------------------------------*/
+@mixin vendor($property, $value...){
+    -webkit-#{$property}:$value;
+       -moz-#{$property}:$value;
+        -ms-#{$property}:$value;
+         -o-#{$property}:$value;
+            #{$property}:$value;
+}
+
+/* ----------------------------------------
+ * Keyfraomes mixin
+ -- mixin to generate cross-browser CSS3 animations
+------------------------------------------------------*/
+@mixin keyframes($name) {
+  @-webkit-keyframes $name { @content; }
+  @-moz-keyframes $name { @content; }
+  @-ms-keyframes $name { @content; }
+  @keyframes $name { @content; }
+}
+
+/* ----------------------------------------
+nth-child mixin
+------------------------------------------------------*/
+@mixin colors($max-count, $color-frequency, $color){
+  @for $i from 1 through $max-count {
+    &:nth-child(#{$max-count}n + #{$i}) {
+      // Modify 's' and 'l' percentages to match color scheme you want
+      background-color: transparentize($color, ($max-count - $i) * 0.1);
+    }
+  }
+}

@@ -1,0 +1,71 @@
+div.locks
+	img(src="images/lock-open.png").locks__lock
+	img(src="images/lock-open.png").locks__lock
+	img(src="images/lock-active.png").locks__lock
+.row
+	
+
+	.large-12.columns.code__content
+        
+		h3.modal__content__heading.modal__content__heading--circuit
+			| Complete this pre-amplifier,
+
+		p.modal__content__subheading--circuit 
+			| by dragging the 
+			b elements
+			| onto the circuit board in the correct places. <br/>
+			| The volume button on the left will indicate if you're right.
+
+		.code-input
+
+			.code-input__content.cf
+				h3.code-content__heading=title
+				.draggers
+					.dragcenter
+						.dragblock
+							.resistor-drag.ohm(draggable='true', id='C1', text='{"id": "C1","type": "capacitor", "text": "C1<br>O.luf-luf"}')
+								|C1<br>O.luf-luf
+						.dragblock
+							.resistor-drag.ohm(draggable='true', id='C2', text='{"id": "C2","type": "capacitor", "text": "C2<br>O.luf"}')
+								|C2<br>O.luf
+						.dragblock
+							.resistor-drag.resistor(draggable='true', id='R1', text='{"id": "R1","type": "resistor", "text": "R1<br>10K"}')
+								|R1<br>10K
+						.dragblock
+							.resistor-drag.resistor(draggable='true', id='R2', text='{"id": "R2","type": "resistor", "text": "R2<br>100K"}')
+								|R2<br>100K
+						.dragblock
+							.resistor-drag.resistor(draggable='true', id='R3', text='{"id": "R3","type": "resistor", "text": "R2<br>10K"}')
+								|R3<br>10K
+				.circuit-container
+					.spacer-circuit
+					.circuit
+						div(id='hori1', data-type='hori').question-block.horizontal.turq-border.hori1
+							|?
+						div(id='hori2', data-type='hori').question-block.horizontal.turq-border.hori2
+							|?
+						div(id='hori3', data-type='hori').question-block.horizontal.turq-border.hori3
+							|?
+						div(id='vert1', data-type='vert').question-block.vertical.turq-border.vert1
+							|?
+						div(id='vert2', data-type='vert').question-block.vertical.turq-border.vert2
+							|?
+
+		.volume-container
+		.volume
+
+		.action-btns-circuit
+			button(disabled="disabled", data-code-type="javascript").btn.btn--reset.executr-switch Reset &laquo;
+			button(disabled="disabled").btn.btn--submit Submit &raquo;
+
+		.clock-container
+			.clock
+				.top
+				.right
+				.bottom
+				.left
+				.center
+				.shadow
+				.hour
+				.minute
+				.second

@@ -1,0 +1,27 @@
+doctype html
+html(lang='en', style="overflow:hidden;")
+	head
+		meta(charset='UTF-8')
+		title GRADS 2014!
+		link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.css')
+		link(href='//fonts.googleapis.com/css?family=Open+Sans:400,300,700,300italic', rel='stylesheet', type='text/css')
+		link(rel='stylesheet', href='css/grads.css')
+		meta(content='width=device-width, initial-scale=1,user-scalable=no', name='viewport')
+	body
+
+		.loading
+			span.loading__text 
+				i loading application...
+
+		.container
+
+			.user-status-bar
+
+			.page
+				
+	#scripts
+		!= sharify.script()
+		
+	#scripts
+		script( src='js/grads.js')
+		

@@ -1,0 +1,43 @@
+div.locks
+	img(src="images/lock-open.png").locks__lock
+	img(src="images/lock-open.png").locks__lock
+	img(src="images/lock-open.png").locks__lock
+.row
+	
+
+	.large-12.columns.vile__content
+
+		h5.modal__content__heading.modal__content__heading--vile=challenge.description
+		
+		div(class="viles-content viles-content-#{challengeNum}")
+
+			each item, i in challenge.viles
+
+				div(class="vile-#{i} vile")
+					button(data-transfer-from="#{i}", data-transfer-to="#{item.transferTo}", class="vile-transfer-btn")
+					button(data-fill="#{i}").btn.vile--fill
+					button(data-empty="#{i}").btn.vile--empty
+					.vase
+						img(src="images/vile/q#{challengeNum}v#{i}.png").vase-image
+						.vile-water-levels
+							- for (var t=0; t < item.capacity; t++)
+								div(style="height: #{item.height}px;").vile-water-level
+
+					h5.fill-amount 
+						span(class="vile-fill") #{item.fillAmount} 
+						| / #{item.capacity}
+
+		.action-btns
+			button(disabled="disabled").btn.btn--submit Submit #{challengeNum}/#{totalChallenges} &raquo;
+
+		.clock-container
+			.clock
+				.top
+				.right
+				.bottom
+				.left
+				.center
+				.shadow
+				.hour
+				.minute
+				.second
