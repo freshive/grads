@@ -19,7 +19,7 @@ ViewManager.prototype.switchView = function(view) {
 			.then($.proxy(this.currentView.remove, this.currentView))
 			.then($.proxy(this.setupView, this))
 			.then($.proxy(this.startViewAnimation, this));
-		
+
 	this.setupView();
 	return this.startViewAnimation();
 };
@@ -30,7 +30,7 @@ ViewManager.prototype.setupView = function () {
 
 	this.timeline.clear();
 	this.timeline.timeScale(1);
-	this.timeline.add(TweenMax.to($curtains, 0.5, { height: '570px' }));
+	this.timeline.add(TweenMax.to($curtains, 0.5, { height: '435px' }));
 	this.timeline.add(TweenMax.to($curtains, 0.5, { rotation: -10 }));
 	this.timeline.add(TweenMax.to(view.$el, 0.25, { top: '37px', delay: -1 }));
 	this.timeline.add(TweenMax.to(view.$el.find('.page__view__content'), 0.25, { top: 0, opacity: 1 }));
@@ -43,7 +43,7 @@ ViewManager.prototype.setupView = function () {
 		);
 		this.timeline.add(tween);
 	}, this ));
-	
+
 	this.$viewHolder.prepend(view.el);
 	this.timeline.pause();
 	view.$el.removeClass('page__view--initial-state');

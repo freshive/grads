@@ -13,7 +13,7 @@ var Backbone = require('backbone'),
 require('./modules/nprogress')();
 
 require('./modules/notifier')({
-	positionClass: 'toast-bottom-left', 
+	positionClass: 'toast-bottom-left',
 	showMethod: 'slideDown',
 	timeOut: '5000',
 	closeButton: true
@@ -21,7 +21,9 @@ require('./modules/notifier')({
 
 // Initialize out application
 module.exports.init = function() {
-	
+
+
+
 	var preloader = new Preloader(),
 		facebookApi = window.fb = new FbPromise({
 			appId: sd.FACEBOOK_APP.ID

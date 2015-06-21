@@ -13,7 +13,7 @@
 	$off-white: #ededed;
 	$orange: #FD972A;
 	$grey: #999999;
-	
+
 	/* Overides -----------------------*/
 	$body-font-family: 'fnb_sans-regular-webfont',  sans-serif !default;
 	$headings-font-family: 'fnb_sans-bold-webfont',  sans-serif !default;
@@ -28,7 +28,7 @@
  * Frameworks
  -- paths specified in Gulpfile
 -------------------------------------------*/
-	
+
 	@import 'functions';
 	@import 'components/type';
 	@import 'components/grid';
@@ -37,7 +37,7 @@
  * Reusable Css Modules
  -- scss modules reused throughout projects
 --------------------------------------------*/
-	
+
 	@import 'css-modules/mixins';
 	@import 'css-modules/toastr';
 	@import 'css-modules/nprogress';
@@ -53,7 +53,7 @@
 	}
 
 	@include keyframes('loading-before') {
-		0%   { @include vendor(transform, translateX(-14px)); } 
+		0%   { @include vendor(transform, translateX(-14px)); }
   		50%  { @include vendor(transform, translateX(14px)); }
   		100% { @include vendor(transform, translateX(-14px)); }
 	}
@@ -66,7 +66,7 @@
 
 	@include keyframes ('time') {
   		to { @include vendor(transform, rotate(360deg)); }
-	}	
+	}
 
 /* --------------------------
  * Grad2014 Styles
@@ -86,7 +86,6 @@
 		width: 810px;
 		margin: 0 auto;
 		overflow: hidden;
-		background-image: url('../images/bg-stars.png');
 		background-color: $turq;
 
 	}
@@ -94,12 +93,12 @@
 	/* Fonts -----------------------*/
 	@include font-face($fonts, 'fonts/');
 
-	h1, h2, h3, h4, h5, b, strong { 
-		font-family: $headings-font-family; 
+	h1, h2, h3, h4, h5, b, strong {
+		font-family: $headings-font-family;
 		font-weight: normal;
 	}
 
-	.font--light, i{ 
+	.font--light, i{
 		font-family: "fnb_sans-light-webfont",  sans-serif;
 		font-weight: normal;
 	}
@@ -129,7 +128,7 @@
 		font-weight: normal;
 		font-style: normal;
 	}
-	
+
 	.action-btns{
 		text-align: center;
 		margin-bottom: $column-gutter;
@@ -151,15 +150,15 @@
 	}
 
 	:-moz-placeholder { /* Firefox 18- */
-		color: $turq;  
+		color: $turq;
 	}
 
 	::-moz-placeholder {  /* Firefox 19+ */
-		color: $turq;  
+		color: $turq;
 	}
 
-	:-ms-input-placeholder {  
-		color: $turq;  
+	:-ms-input-placeholder {
+		color: $turq;
 	}
 
 	/* Sick Preloader -----------------------*/
@@ -230,10 +229,10 @@
 		position: absolute;
 		min-height: 0;
 		width: 200%;
-		background-image: url('../images/bg-stars.png');
+
 		background-repeat: repeat;
 		background-position: left left;
-		
+
 		z-index: 2;
 		top: -100px;
 		left: -50%;
@@ -244,9 +243,9 @@
 		}
 
 		.curtain--bottom{
-			bottom: -30px;
+			bottom: -50px;
 			top: auto;
-			background-color: $turq-dark;
+			background: url('../images/bg-shoes.jpg') bottom center $turq-dark;
 		}
 
 		.curtain--off-white{
@@ -258,9 +257,9 @@
 		}
 
 		.curtain--turq{
-			background-color: $turq;	
+			background-color: $turq;
 		}
-	
+
 		.curtain--animation{
 			/*@include vendor(animation-name, 'bg-position');
 			@include vendor(animation-timing-function, linear);
@@ -276,7 +275,6 @@
 
 		.page__view{
 			position: relative;
-			height: 800px;
 		}
 
 			.page__view--initial-state{
@@ -286,7 +284,7 @@
 				z-index: 2;
 				width: 100%;
 			}
-			
+
 			.page__view__content{
 				position: relative;
 				z-index: 5;
@@ -295,19 +293,19 @@
 			}
 
 				.page__view__content.intro{
-					
+
 				}
-			
+
 
 			.page__view__content{
-				min-height: 800px;
+				min-height: 650px;
 			}
 
 	/* Title -----------------------*/
 	.title{
 		text-align: center;
 		&.title--home{
-			margin: $column-gutter / 2 0;
+			margin: $column-gutter 0;
 		}
 	}
 		.title__main{
@@ -317,14 +315,13 @@
 		}
 
 		.title__explanation{
-			margin-left: 160px;
-			letter-spacing: 3px;
-			text-align: left;
+      font-size: 14px;
+			text-align: center;
 		}
-	
+
 	/* Welcome -----------------------*/
 	.welcome-text{
-		padding: 0 $column-gutter * 6;
+		padding: 0 2.0rem;
 		@include vendor(transform, rotate(-10deg));
 	}
 
@@ -333,11 +330,14 @@
 	.logo{
 		text-align: center;
 		position: relative;
-		margin-bottom: $column-gutter * 3;
+		margin-bottom: 2.0rem;
 		cursor: pointer;
 		&:active{
 			top: 1px;
 		}
+    img{
+      max-width: 130px;
+    }
 	}
 		.logo__title{
 			display: inline-block;
@@ -379,7 +379,7 @@
 				opacity: 0;
 				@include vendor(transform, rotate(-20deg)  skew(-20deg,10deg));
 			}
-	
+
 	.logos{
 		padding-top: $column-gutter;
 	}
@@ -415,12 +415,12 @@
 				right: 23px;
 			}
 		}
-		
+
 		.logo-heading{
 			position: relative;
 			z-index: 2;
 			a{
-				color: #fff;	
+				color: #fff;
 			}
 		}
 
@@ -436,16 +436,18 @@
 				color:
 			}
 		}
-	
+
 	/* Intro Page -----------------------*/
 	.intro{
 		border-top: 3px solid $turq-dark;
 		min-height: 620px;
 	}
 
+  .about-content { min-height: 850px; }
+
 	/* Category Page -----------------------*/
 	.category{
-		min-height: 770px;
+		min-height: 670px;
 		border-top: 3px solid #ccc;
 	}
 
@@ -454,7 +456,7 @@
 		}
 
 		.category__heading{
-			margin: $column-gutter / 2 0;
+			margin: $column-gutter 0;
 			text-align: center;
 			p{
 				color: #888888;
@@ -482,6 +484,8 @@
 
 	.category__heading .logo-heading{
 		@extend .font--bold;
+    color: #fff;
+    margin-top: -10px;
 	}
 
 	.category .logo--first{
@@ -507,7 +511,7 @@
 	}
 
 	.category .logo--third{
-		
+
 		.logo__shadow--top{
 			height: 193px;
 			margin-right: -130px;
@@ -536,7 +540,7 @@
 	}
 		.graduate-overview-bar{
 			@extend .font--light;
-			background-color: $turq;
+			background-color: #fff;
 			text-align: center;
 			list-style: none;
 			padding: $column-gutter / 3;
@@ -547,11 +551,14 @@
 			width: 100%;
 			font-size: 14px;
 			margin: 0;
+      h5{
+        color: #000;
+      }
 		}
 			.graduate-overview-bar__detail {
 				margin-bottom: 0;
 			}
-		
+
 		.btn--about{
 			display: block;
 			position: absolute;
@@ -579,7 +586,7 @@
 				top: 1px;
 			}
 		}
-	
+
 	/* Dashboard -----------------------*/
 	.dashboard{
 		border-top: 3px solid $turq-dark;
@@ -597,7 +604,7 @@
 
 	.challenge-icon {
 		/*padding: 0;*/
-		width: 20% !important;
+		width: 25% !important;
 		.logo__shadow--top{
 			right: -2px;
 			width: 87px;
@@ -612,7 +619,7 @@
 	}
 
 	.challenge-icon:first-child{
-		margin-left: 14%;
+		margin-left: 15%;
 		.logo__shadow--top{
 			right: -11px;
 			width: 87px;
@@ -627,7 +634,7 @@
 	}
 
 	.challenge-icon:last-child{
-		right: 26%;
+		right: 11%;
 		.logo__shadow--top{
 			right: 6px;
 			width: 87px;
@@ -642,11 +649,10 @@
 	}
 
 	.challenge-icon .logo-image{
-		width: 85px;
-		height: 85px;
+		width: 130px;
+		height: 130px;
+    background-size: cover;
 		background-image: url('../images/lock-open.png');
-		background-color: #fff;
-		@include vendor(border-radius, 50%);
 		position: relative;
 		z-index: 3;
 	}
@@ -673,19 +679,25 @@
 		.icon-modal{
 			float: right;
 			margin-left: $column-gutter;
+      max-width: 60px;
 			&:active{
 				position: relative;
 				top: 1px;
 			}
 		}
 		.icon-modal__heading{
-			color: $turq;
+			color: #fff;
+      opacity: 0.6;
+      text-align: center;
+      margin-top: 10px;
 		}
 		.terms{
-			color: $grey;
+			color: #fff;
 			float: left;
 			margin: 0;
 			line-height: 140px;
+      margin-top: 10px;
+      opacity: 0.6;
 		}
 	}
 
@@ -695,7 +707,7 @@
 		width: 95%;
 		z-index: 4;
 		top: 5%;
-		@include vendor(border-radius, 20px 20px 0 20px);
+		// @include vendor(border-radius, 20px 20px 0 20px);
 		left: -150%;
 	}
 
@@ -706,8 +718,8 @@
 			height: 35px;
 			text-align: center;
 			@include vendor(border-radius, 50%);
-			right: 5px;
-			top: 5px;
+			right: -5px;
+			top: -5px;
 			cursor: pointer;
 			z-index: 3;
 			line-height: 14px;
@@ -740,14 +752,15 @@
 		}
 
 	/* Modal Leaderboard -----------------------*/
-	
+
 	.modal__leaderboard{
-		background: url('../images/bg-stars.png') top right $off-white;
-		@include vendor(border-radius, 20px 20px 0 20px);
+		// background: url('../images/bg-stars.png') top right $off-white;
+    background: $off-white;
+		// @include vendor(border-radius, 20px 20px 0 20px);
 		min-height: 200px;
 	}
 		.modal__content__heading {
-			color: $turq;
+			color: #000;
 			border-bottom: 0;
 			margin-bottom: 0;
 			padding: $column-gutter;
@@ -760,28 +773,31 @@
 
 		.leaderboard__list{
 			list-style: none;
-			color: $turq;
+			color: #000;
 			margin: 0;
 			margin-left: $column-gutter / 1.5;
 			padding: 0 $column-gutter $column-gutter;
-			> li { 
-				margin-bottom: $column-gutter / 3; 
+			> li {
+				margin-bottom: $column-gutter / 3;
 				opacity: 0;
 				@include vendor(transform, translateX(-150px));
 			}
+      > li:first-child {
+        color: $turq;
+      }
 		}
 
 	/* Binary Challenge -----------------------*/
 
 	.modal__binary-challenge{
-		@include vendor(border-radius, 20px 20px 0 20px);
+		// @include vendor(border-radius, 20px 20px 0 20px);
 		background-color: $turq;
 	}
 
 	.modal__binary-challenge--final{
 		background-color: $off-white;
 	}
-		
+
 		.binary__content{
 			background: url('../images/bg-stars.png') top right $off-white;
 			color: $grey;
@@ -789,7 +805,7 @@
 		}
 
 		.binary__content--phase-2{
-			@include vendor(border-radius, 20px 20px 0 20px);
+			// @include vendor(border-radius, 20px 20px 0 20px);
 			background-color: $off-white;
 
 		}
@@ -811,7 +827,7 @@
 				padding: 0 $column-gutter/ 2;
 				list-style: numeric;
 			}
-		
+
 		.binary__tables{
 			padding: 0;
 			width: 12.5%;
@@ -832,7 +848,7 @@
 					background-color: #99CCCC;
 					cursor: pointer;
 				}
-	
+
 	.binary__question{
 		@extend .font--light;
 		color: #fff;
@@ -854,7 +870,7 @@
 			-ms-user-select: none;
 			user-select: none;
 		}
-	
+
 	.binary__answers{
 		@include clearfix();
 		min-height: 150px;
@@ -923,14 +939,14 @@
 	/* Modal Pitch Challenge -----------------------*/
 	.modal__pitch-challenge{
 		background-color: $off-white;
-		@include vendor(border-radius, 20px 20px 0 20px);
+		// @include vendor(border-radius, 20px 20px 0 20px);
 		margin-left: $column-gutter;
-		
+
 	}
 
 		.pitch__content{
 			padding: 0;
-			
+
 		}
 
 		.modal__content__heading--pitch{
@@ -953,7 +969,7 @@
 			@include vendor(transform, rotate(5deg));
 			z-index: 1;
 		}
-		
+
 		.pitch-input{
 			overflow: hidden;
 			position: relative;
@@ -1051,7 +1067,7 @@
 			position: relative;
 			min-height: 200px;
 			overflow: hidden;
-			@include vendor(border-radius, 20px 20px 0 20px);
+			// @include vendor(border-radius, 20px 20px 0 20px);
 			.modal__content__curtain {
 				bottom: -55%;
 			}
@@ -1064,10 +1080,10 @@
 			}
 
 	/* Modal Pitch Challenge -----------------------*/
-	
+
 	.modal__pattern-challenge{
 		background-color: $off-white;
-		@include vendor(border-radius, 20px 20px 0 20px);
+		// @include vendor(border-radius, 20px 20px 0 20px);
 		margin-left: $column-gutter * 5;
 		.locks{
 			margin-left: -25px;
@@ -1078,7 +1094,7 @@
 		text-align: center;
 		margin: $column-gutter 0;
 		margin-bottom: $column-gutter;
-		padding: $column-gutter / 2 $column-gutter * 4; 
+		padding: $column-gutter / 2 $column-gutter * 4;
 	}
 
 	.q-and-a__question{
@@ -1245,10 +1261,10 @@
 	}
 
 	/* Modal Pitch Challenge -----------------------*/
-	
+
 	.modal__path-challenge{
 		background-color: $off-white;
-		@include vendor(border-radius, 20px 20px 0 20px);
+		// @include vendor(border-radius, 20px 20px 0 20px);
 		margin-left: $column-gutter * 5;
 		.locks{
 			margin-left: -25px;
@@ -1263,7 +1279,7 @@
 	}
 
 	.modal__content__heading--path{
-		
+
 		margin-top: $column-gutter * 2;
 		text-align: center;
 		margin-bottom: 0;
@@ -1275,7 +1291,7 @@
 		}
 
 	.modal__content__subheading--path{
-		
+
 		text-align: center;
 		margin-bottom: $column-gutter;
 		padding: 0;
@@ -1284,13 +1300,13 @@
 
 	.path__challenge{
 		text-align: center;
-		position: relative;	
+		position: relative;
 		overflow: hidden;
 	}
 
 	.path-challenge__table{
 		@extend .font--bold;
-		
+
 		display: inline-block;
 		color: $turq;
 		font-size: 18px;
@@ -1320,7 +1336,7 @@
 		}
 
 		.path-challenge__start-end{
-			background-color: $turq-light; 
+			background-color: $turq-light;
 			// background-color: desaturate($turq, 50%);
 		}
 
@@ -1383,18 +1399,18 @@
 			}
 		}
 	}
-	
+
 	/* Modal Pitch Challenge -----------------------*/
 	.modal__number-pattern-challenge{
 		background-color: $off-white;
-		@include vendor(border-radius, 20px 20px 0 20px);
-		
+		// @include vendor(border-radius, 20px 20px 0 20px);
+
 		.row{
 			padding: 0;
 			margin: 0;
 			max-width: 100%;
 		}
-		
+
 		.btn{
 			outline: none;
 			margin-right: 5px;
@@ -1435,7 +1451,7 @@
 			outline: 0;
 		}
 	}
-	
+
 	.q-and-a {
 		.input__logic{
 			background-color: $turq-light;
@@ -1520,18 +1536,18 @@
 		}
 
 		.page__content{
-			
+
 			opacity: 0;
 		}
 
 	.curtain--video{
 		bottom: -4%;
 	}
-	
+
 	/* Modal__description -----------------------*/
 	.modal__description{
 		background-color: $off-white;
-		@include vendor(border-radius, 20px 20px 0 20px);
+		// @include vendor(border-radius, 20px 20px 0 20px);
 		.color--grey{
 			color: $grey;
 		}
@@ -1622,7 +1638,7 @@
 	/* Modal__code -----------------------*/
 	.modal__code-challenge{
 		background-color: $off-white;
-		@include vendor(border-radius, 20px 20px 0 20px);
+		// @include vendor(border-radius, 20px 20px 0 20px);
 
 		margin-left: $column-gutter * 5;
 		.btn{
@@ -1636,7 +1652,7 @@
 	}
 
 	textarea.code__input{
-		
+
 	}
 
 	.code-input{
@@ -1666,7 +1682,7 @@
 	/* Modal__vile -----------------------*/
 	.modal__vile-challenge{
 		background-color: $off-white;
-		@include vendor(border-radius, 20px 20px 0 20px);
+		// @include vendor(border-radius, 20px 20px 0 20px);
 
 		margin-left: $column-gutter * 5;
 		.btn{
@@ -1691,7 +1707,7 @@
 		font-size: 18px;
 		text-align: center;
 	}
-	
+
 	.vile{
 		display: inline-block;
 		text-align: center;
@@ -1828,10 +1844,10 @@
 	}
 
 	/* Modal Badges -----------------------*/
-	
+
 	.modal__badges{
 		background: url('../images/bg-stars.png') top right $turq-dark;
-		@include vendor(border-radius, 20px 20px 0 20px);
+		// @include vendor(border-radius, 20px 20px 0 20px);
 		min-height: 200px;
 
 	}
@@ -1858,12 +1874,12 @@
 			padding: 0 $column-gutter $column-gutter;
 			text-align: center;
 
-			> li { 
-				margin-bottom: $column-gutter / 3; 
+			> li {
+				margin-bottom: $column-gutter / 3;
 				margin-right: 20px;
 				opacity: 0;
 				display: inline-block;
-				
+
 			}
 		}
 
@@ -1873,11 +1889,11 @@
 			font-size: 14px;
 			opacity: 0.8;
 		}
-		
+
 		.locks{
 
 		}
-	
+
 	/* Modal Circuit Challenge*/
 
 	.action-btns-circuit {
@@ -1923,7 +1939,7 @@
         top: 120px;
         left: 0px;
     }
-	
+
 	.dragcenter {
 		@include clearfix();
 		width:525px;
@@ -1941,16 +1957,16 @@
     }
 
 	.dragblock:first-child {
-		border-left: 2px solid #ffffff;	
+		border-left: 2px solid #ffffff;
 	}
 
 	.dragblock:last-child {
-		border-right: 2px solid #ffffff;	
+		border-right: 2px solid #ffffff;
 	}
 
 	.question-block {
-		
-		
+
+
 		position: absolute;
 		color: #169b9a;
 		font-weight: bold;

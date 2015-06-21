@@ -5,7 +5,7 @@ var _ = require('underscore'),
 	vent = require('./vent'),
 	sd = require('sharify').data,
 	startTemplate = function () { return require('../templates/start.jade').apply(null, arguments); },
-	profileTemplate = function () { return require('../templates/profile.jade').apply(null, arguments); },	
+	profileTemplate = function () { return require('../templates/profile.jade').apply(null, arguments); },
 	thinkerTypeTemplate = function () { return require('../templates/thinkertype.jade').apply(null, arguments);	},
 	badgesTemplate = function () { return require('../templates/badges.jade').apply(null, arguments); },
 	finisherTemplate = function () { return require('../templates/finisher.jade').apply(null, arguments); },
@@ -23,7 +23,7 @@ var Graduate = module.exports = {
 
 Graduate.Model = Backbone.Model.extend({
 	idAttribute: 'Token',
-	
+
 	urlRoot: sd.API_URL + 'graduates',
 
 	initialize: function() {
@@ -31,7 +31,7 @@ Graduate.Model = Backbone.Model.extend({
 		this.listenTo(this, 'change:Firstname', this.showProfileBar, this);
 		this.listenTo(this, 'change:TotalPoints', this.showProfileBar, this);
 	},
-	
+
 	defaults: {
 		Id: 0,
 		ThinkerType: 0
@@ -149,7 +149,6 @@ Graduate.Views.Page = Backbone.View.extend({
 		this.page = options.page;
 		this.animations = options.animations || this.animations;
 		this.thinkertype = options.thinkertype;
-
 	},
 
 	render: function() {
@@ -190,20 +189,20 @@ Graduate.Views.ThinkerType = Backbone.View.extend({
 			tweenFunction: 'to',
 			element: '.curtain--bottom',
 			duration: 0.5,
-			properties: {  height: '490px' }
+			properties: {  height: '390px' }
 		},
 		{
 			tweenFunction: 'allFrom',
 			element: '.logos__animation',
 			duration: 0.5,
 			properties: { y: '-50', x: '-50',   opacity: 0, ease: 'Circ.easeInOut' },
-			delay: 0.5	
+			delay: 0.5
 		},
 		{
 			tweenFunction: 'allTo',
 			element: '.logo__shadow--bottom',
 			duration: 2,
-			properties: {  height: '520px', opacity: 1 }
+			properties: {  height: '420px', opacity: 1 }
 		}
 	],
 

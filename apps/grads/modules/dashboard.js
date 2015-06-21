@@ -33,7 +33,7 @@ var Base = Dashboard.Views.Base = Backbone.View.extend({
 		this.finisher = options.finisher;
 		this.vent.on('challenge:submit', this.showChallengeResults, this);
 	},
-	
+
 	render: function() {
 		this.$el.empty().append(dashboardTemplate({
 			thinkerType: this.model.getGraduateTypeName(),
@@ -58,16 +58,16 @@ var Base = Dashboard.Views.Base = Backbone.View.extend({
 		var challengeNum = $(ev.currentTarget).data('challenge'),
 			challenge = this.currentChallenge = _.find(this.model.get('Challenges'), function(challenge) {
 				return challengeNum === challenge.Order;  });
-		
+
 		this.modalDescription.model.set(challenge);
 		this.insertModal(this.modalDescription);
 	},
 
 	showChallengeResult: function() {
 		var self = this,
-			challenge = _.find(this.model.get('Challenges'), function(challenge) { 
+			challenge = _.find(this.model.get('Challenges'), function(challenge) {
 				return self.currentChallenge.ChallengeId === challenge.ChallengeId;  }),
-			badge = _.find(this.model.get('Badges'), function(badge) { 
+			badge = _.find(this.model.get('Badges'), function(badge) {
 				return challenge.ChallengeId === badge.ChallengeId && badge.Obtained;  }),
 			viewData = { badge: badge, challenge: challenge };
 
@@ -89,7 +89,7 @@ var Base = Dashboard.Views.Base = Backbone.View.extend({
 			challenge = this.challenges[this.currentChallenge.Order - 1];
 
 		challenge.model.set('ChallengeResultId', this.currentChallenge.ChallengeId);
-		
+
 		$.when(this.removeModal(), challenge.model.fetch({ data: { token: this.model.get('Token') }, processData: true })).then(function() {
 			self.insertModal(challenge);
 		});
@@ -154,17 +154,11 @@ var Base = Dashboard.Views.Base = Backbone.View.extend({
 
 	animations:  [
 		{
-			tweenFunction: 'to',
-			element: '.curtain--bottom',
-			duration: 0.5,
-			properties: {  height: '470px' }
-		},
-		{
 			tweenFunction: 'allFrom',
 			element: '.logos__animation',
 			duration: 0.5,
 			properties: { y: '-50', x: '-50',   opacity: 0, ease: 'Circ.easeInOut' },
-			delay: 0.5	
+			delay: 0.5
 		},
 		{
 			tweenFunction: 'allTo',
@@ -177,10 +171,9 @@ var Base = Dashboard.Views.Base = Backbone.View.extend({
 			element: '.icon-modal',
 			duration: 0.5,
 			properties: { y: '-50', x: '-50',   opacity: 0, ease: 'Circ.easeInOut' },
-			delay: 0.2	
+			delay: 0.2
 		}
 	],
 });
 
 Dashboard.Views.Engineering = Base.extend({});
-	
