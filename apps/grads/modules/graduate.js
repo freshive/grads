@@ -117,7 +117,7 @@ Graduate.Views.Start = Backbone.View.extend({
 		if(this.model.get('ThinkerType') === 0)
 			return this.vent.trigger('route:thinkertype');
 
-		this.vent.trigger('route:intro');
+		this.vent.trigger('route:dashboard');
 	}
 
 });
@@ -222,7 +222,7 @@ Graduate.Views.ThinkerType = Backbone.View.extend({
 	},
 
 	navigateUser: function () {
-		this.vent.trigger('route:intro');
+		this.vent.trigger('route:dashboard');
 	}
 });
 
