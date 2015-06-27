@@ -3,12 +3,12 @@ div.locks
 	img(src="images/lock-open.png").locks__lock
 	img(src="images/lock-open.png").locks__lock
 .row
-	
+
 
 	.large-12.columns.vile__content
 
 		h5.modal__content__heading.modal__content__heading--vile=challenge.description
-		
+
 		div(class="viles-content viles-content-#{challengeNum}")
 
 			each item, i in challenge.viles
@@ -23,8 +23,8 @@ div.locks
 							- for (var t=0; t < item.capacity; t++)
 								div(style="height: #{item.height}px;").vile-water-level
 
-					h5.fill-amount 
-						span(class="vile-fill") #{item.fillAmount} 
+					h5.fill-amount
+						span(class="vile-fill") #{item.fillAmount}
 						| / #{item.capacity}
 
 		.action-btns

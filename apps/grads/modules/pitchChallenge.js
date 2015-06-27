@@ -59,7 +59,7 @@ PitchChallenge.Views.Challenge = Backbone.View.extend({
 		});
 
 		return this;
-		
+
 	},
 
 	wordHasBeenUsed: function(inputText) {
@@ -75,7 +75,7 @@ PitchChallenge.Views.Challenge = Backbone.View.extend({
 
 	canPost: function(inputText) {
 		var activeWords = this.$el.find('.pitch__words__word--active');
-		if(activeWords.length === this.pitchTest.words.length 
+		if(activeWords.length === this.pitchTest.words.length
 			&& inputText.length <= this.maxLength)
 			return this.$el.find('.btn--submit').removeAttr('disabled');
 
@@ -104,19 +104,19 @@ PitchChallenge.Views.Challenge = Backbone.View.extend({
 	updateLikes: function(message) {
 		var $numlikes = this.$el.find('#numlikes');
 
-		
+
 		if(message && message.likes) {
-			
+
 			if(this.currentLikes !== message.likes.data.length) {
 				this.currentLikes = message.likes.data.length;
 				this.vent.trigger('notify', { type: 'info', message: 'Wahoo. You received a Facebook like.'  });
 				$numlikes.html(message.likes.data.length);
 			}
-			
+
 			return message.likes.data.length;
-			
+
 		}
-			
+
 		$numlikes.html(0);
 	},
 
@@ -134,7 +134,7 @@ PitchChallenge.Views.Challenge = Backbone.View.extend({
 	saveMessage: function(ev) {
 		var inputText = this.$el.find('.pitch__input').val(),
 			self = this;
-		
+
 		self.vent.trigger('notify', { type: 'info', message: 'Posting your message to Facebook.'  });
 		return this.getFacebookStreamPerms(this.streamPerms)
 			.then(function() { return self.postMessageToFb(inputText); })
@@ -155,13 +155,13 @@ PitchChallenge.Views.Challenge = Backbone.View.extend({
 	},
 
 	hasPosted: function () {
-		var q = 'https://graph.facebook.com/fql?q={"stream":"select post_id FROM stream where source_id=me() and app_id =' + sd.ID +'"}&access_token=' + this.graduate.get('Token'),
+		var q = 'https://graph.facebook.com/v2.0/fql?q={"stream":"select post_id FROM stream where source_id=me() and app_id =' + sd.ID +'"}&access_token=' + this.graduate.get('Token'),
 			self = this;
 		return $.get(q).then(function (obj) {
 			if(obj.data.length > 0 && obj.data[0].fql_result_set[0]) {
 				self.model.set('Answers', obj.data[0].fql_result_set[0].post_id);
 			}
-				
+
 		});
 	},
 
@@ -174,7 +174,7 @@ PitchChallenge.Views.Challenge = Backbone.View.extend({
 	submitMessage: function() {
 		var self = this;
 		return this.model.save().then(function() {
-			self.vent.trigger('challenge:submit');	
+			self.vent.trigger('challenge:submit');
 		});
 	},
 

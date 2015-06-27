@@ -3,21 +3,19 @@ div.locks
 	img(src="images/lock-open.png").locks__lock
 	img(src="images/lock-open.png").locks__lock
 .row
-	
+
 
 	.large-12.columns.code__content
 
-		h3.modal__content__heading.modal__content__heading--code
-			| &raquo; Javascript Ninja Challenges &laquo;
 
-		p.modal__content__subheading--code 
-			| Use the generated words below in a code, post it to your Facebook wall, you will be measured on the amount of likes you’ve received in 24 hours
+
+		h5.modal__content__heading.modal__content__heading--vile.modal__content__subheading--code
 
 		.code-input
 
 			.code-input__content.cf
 				h3.code-content__heading=title
-				
+
 				textarea.code__input ...
 
 				div.code__result
@@ -26,20 +24,7 @@ div.locks
 
 				.action-btns
 					button.btn.btn--run.executr-switch(data-code-type="javascript") Run Code &laquo;
-					button(disabled="disabled").btn.btn--submit 
-						| Submit 
+					button(disabled="disabled").btn.btn--submit
+						| Submit
 						span.num-challenge 1
 						| /5 &raquo;
-
-
-		.clock-container
-			.clock
-				.top
-				.right
-				.bottom
-				.left
-				.center
-				.shadow
-				.hour
-				.minute
-				.second

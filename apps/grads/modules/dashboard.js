@@ -35,6 +35,7 @@ var Base = Dashboard.Views.Base = Backbone.View.extend({
 	},
 
 	render: function() {
+    console.log(this.model.toJSON());
 		this.$el.empty().append(dashboardTemplate({
 			thinkerType: this.model.getGraduateTypeName(),
 			model: this.model.toJSON()
@@ -60,6 +61,8 @@ var Base = Dashboard.Views.Base = Backbone.View.extend({
 				return challengeNum === challenge.Order;  });
 
 		this.modalDescription.model.set(challenge);
+    this.modalDescription.model.set("thinkerType", this.model.getGraduateTypeName());
+    this.modalDescription.model.set("meta", this.model.toJSON())
 		this.insertModal(this.modalDescription);
 	},
 
@@ -117,7 +120,7 @@ var Base = Dashboard.Views.Base = Backbone.View.extend({
 		this.timeline.clear();
 		this.timeline.timeScale(1);
 		this.timeline.add(new TweenMax.to(this.$overlay, 0.5, {  width: '100%', ease: 'Circ.easeOut' }));
-		this.timeline.add(new TweenMax.to(this.$modal, 0.5, { left: '15px', ease: 'Circ.easeOut', delay: -0.25 }));
+		this.timeline.add(new TweenMax.to(this.$modal, 0.5, { left: '0px', ease: 'Circ.easeOut', delay: -0.25 }));
 		$.each(view.animations, $.proxy(function (index, animation) {
 			var tween = TweenMax[animation.tweenFunction](
 				view.$el.find(animation.element),
@@ -127,7 +130,7 @@ var Base = Dashboard.Views.Base = Backbone.View.extend({
 			);
 			this.timeline.add(tween);
 		}, this ));
-		this.timeline.add(new TweenMax.to(this.$modal.find('.modal__box'), 0.5, { boxShadow: '15px 15px 3px rgba(0,0,0,0.4)', ease: 'Circ.easeOut' }));
+		this.timeline.add(new TweenMax.to(this.$modal.find('.modal__box'), 0.5, { boxShadow: '0px 5px 3px rgba(0,0,0,0.4)', ease: 'Circ.easeOut' }));
 		this.timeline.pause();
 	},
 

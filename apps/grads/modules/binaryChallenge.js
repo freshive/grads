@@ -34,6 +34,7 @@ BinaryChallenge.Views.Challenge = Backbone.View.extend({
 		this.hash = _.extend({}, options.hashLeft, options.hashRight);
 		this.currentAnswer = '';
 		this.fufilledQuestion = '';
+    window.test = this;
 	},
 
 	render: function() {
@@ -125,7 +126,7 @@ BinaryChallenge.Views.Challenge = Backbone.View.extend({
 		_.each(results, function(result) {
 			self.$el.find("[data-hashresult='" + result + "']")
 				.addClass('binary__table__highlight-option');
-		});		
+		});
 	},
 
 	removeHighlightFromAnswers: function() {
@@ -134,7 +135,7 @@ BinaryChallenge.Views.Challenge = Backbone.View.extend({
 
 	updateQuestionWithAnswer: function(answer) {
 		// Return new question subtracting the answer from
-		// the result. Return the answer into a dom element 
+		// the result. Return the answer into a dom element
 		// that is not selectable. Prepend the dome element into
 		// the remaining question.
 		var $unselectableEl = $('<span></span>')
@@ -208,7 +209,7 @@ BinaryChallenge.Views.Challenge = Backbone.View.extend({
 	},
 
 	saveUserInput: function(ev) {
-		var inputVal = $(ev.currentTarget).val().toUpperCase(), 
+		var inputVal = $(ev.currentTarget).val().toUpperCase(),
 			reqResult = this.hash[inputVal];
 		this.removeHighlightFromAnswers();
 		if(reqResult && this.checkInputMatch(reqResult.toString())) {
@@ -226,8 +227,8 @@ BinaryChallenge.Views.Challenge = Backbone.View.extend({
 		var answer = this.$el.find('.binary__final-answer').val().toLowerCase();
 		if(answer !== this.finalAnswer.toLowerCase())
 			return this.$el.find('.btn--submit--final').attr('disabled', 'disabled');
-		
-		this.model.set('Answers', answer);		
+
+		this.model.set('Answers', answer);
 		return this.$el.find('.btn--submit--final').removeAttr('disabled');
 	},
 
@@ -235,7 +236,7 @@ BinaryChallenge.Views.Challenge = Backbone.View.extend({
 		var self = this;
 		this.$el.find('.btn--submit--final').attr('disabled', 'disabled');
 		this.model.save().then(function() {
-			self.vent.trigger('challenge:submit');	
+			self.vent.trigger('challenge:submit');
 		});
 	},
 

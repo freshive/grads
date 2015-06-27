@@ -3,26 +3,30 @@ div.locks
 	img(src="images/lock-open.png").locks__lock
 	img(src="images/lock-open.png").locks__lock
 .row
-	.large-2.columns.binary__tables
-		ul.binary__table.binary__table--left
-			each val, key in hashLeft
-				li(data-hashresult="#{hashLeft[key]}", data-hashkey="#{key}") 
-					| #{key}:#{hashLeft[key]}
+	.large-12.columns.binary__tables
+		p.instructions Each letter of the alphabet was translated into its binary equivalent based on its position in the alphabet
 
-	.large-8.columns.binary__content
-		
+		ul.binary__table
+			each val, key in hashLeft
+				li(data-hashresult="#{hashLeft[key]}", data-hashkey="#{key}")
+					| #{key.toLowerCase()} = <span class="turq">#{hashLeft[key]}</span> /
+			each val, key in hashRight
+				li(data-hashresult="#{hashRight[key]}", data-hashkey="#{key}")
+					| #{key.toLowerCase()} = <span class="turq">#{hashRight[key]}</span> /
+
+	.large-12.columns.binary__content
+
 		h3.modal__content__heading.modal__content__heading--binary
-			| Use the cyphers and translate the code
-		
-		p.modal__content__subheading--binary 
-			| The content consists of a binary code where the spaces between the words are missing.
+			| Instructions
+
+		//- p.modal__content__subheading--binary
+		//- 	| The content consists of a binary code where the spaces between the words are missing.
 
 		ol.modal__explanation--binary
-			li 
-				strong Click and drag a block over the binary you want to select. 
-					span.font--light (Almost like the little squares you drag on your desktop when you get bored)
-			li 
-				strong Click on the highlighted cyphers on the sides if you’re happy.
+			li
+				strong Select a portion of binary below. Watch the letters highlight above.
+			li
+				strong Click on the highlighted cyphers above if you’re happy with your choice and complete the sentance below.
 
 		h5.binary__question
 			span.binary__question__selectable=question
@@ -38,11 +42,6 @@ div.locks
 
 		.action-btns
 			button(disabled="disabled").btn.btn--submit Submit 1/2 &raquo;
-	
-	.large-2.columns.binary__tables
-		ul.binary__table.binary__table--right
-			each val, key in hashRight
-				li(data-hashresult="#{hashRight[key]}", data-hashkey="#{key}") 
-					| #{key}:#{hashRight[key]}
 
-	
+
+

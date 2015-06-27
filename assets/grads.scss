@@ -287,7 +287,7 @@
 
 			.page__view__content{
 				position: relative;
-				z-index: 5;
+				z-index: 7;
 				top: -50px;
 				opacity: 0;
 			}
@@ -704,50 +704,80 @@
 	/* Modal -----------------------*/
 	.modal{
 		position: absolute;
-		width: 95%;
+		width: 100%;
 		z-index: 4;
-		top: 5%;
+		top: -40px;
 		// @include vendor(border-radius, 20px 20px 0 20px);
 		left: -150%;
+    background-color: $off-white;
 	}
 
 		.modal__close{
 			position: absolute;
 			background-color: $orange;
-			width: 35px;
-			height: 35px;
+			width: 60px;
+			height: 60px;
 			text-align: center;
-			@include vendor(border-radius, 50%);
-			right: -5px;
-			top: -5px;
+			// @include vendor(border-radius, 50%);
+			right: 0px;
+			top: 0;
 			cursor: pointer;
 			z-index: 3;
-			line-height: 14px;
+			line-height: 30px;
 			.modal__close__btn{
 				margin: 0;
 			}
 			&:active{
-				top: 6px;
+				top: 1px;
 			}
 			.modal__close__btn{
 				font-size: 24px;
+        line-height: 55px;
 			}
 		}
 
 	.locks{
-		width: 180px;
-		position: absolute;
-		left: 50%;
-		margin-left: -90px;
+		// width: 180px;
+		// position: absolute;
+		// left: 50%;
+		// margin-left: -90px;
 		z-index: 5;
-		top: -30px;
+		// top: -30px;
+    background-color: #099;
+    text-align: center;
+    &:after{
+        content:'';
+        display: block;
+        position: absolute;
+        width: 200px;
+        height: 1px;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        left: 50%;
+        margin-left: -100px;
+        top: 30px;
+        z-index: 1;
+      }
 
+      .thinkertype{
+        position: absolute;
+        top: 10px;
+        left: 10px;
+      }
 	}
 		.locks__lock{
-			width: 33%;
-			@include vendor(border-radius, 50%);
-			background-color: $off-white;
+			// width: 33%;
+			// @include vendor(border-radius, 50%);
+			// background-color: $off-white;
 			padding: 5px;
+      max-width: 60px;
+      margin-left: 40px;
+      position: relative;
+      z-index: 2;
+      &:first-child{
+        margin-left: 0;
+      }
 
 		}
 
@@ -764,6 +794,7 @@
 			border-bottom: 0;
 			margin-bottom: 0;
 			padding: $column-gutter;
+      margin-top: 0;
 		}
 
 			.modal__content__heading--phase-2{
@@ -775,7 +806,7 @@
 			list-style: none;
 			color: #000;
 			margin: 0;
-			margin-left: $column-gutter / 1.5;
+			margin-left: 0;
 			padding: 0 $column-gutter $column-gutter;
 			> li {
 				margin-bottom: $column-gutter / 3;
@@ -791,7 +822,7 @@
 
 	.modal__binary-challenge{
 		// @include vendor(border-radius, 20px 20px 0 20px);
-		background-color: $turq;
+		background-color: #fff;
 	}
 
 	.modal__binary-challenge--final{
@@ -799,9 +830,10 @@
 	}
 
 		.binary__content{
-			background: url('../images/bg-stars.png') top right $off-white;
+			// background: url('../images/bg-stars.png') top right $off-white;
 			color: $grey;
-			width: 75%;
+			width: 100%;
+      text-align: center;
 		}
 
 		.binary__content--phase-2{
@@ -825,23 +857,36 @@
 
 			.modal__explanation--binary{
 				padding: 0 $column-gutter/ 2;
-				list-style: numeric;
+				list-style: none;
+        padding: 0 100px;
 			}
 
 		.binary__tables{
 			padding: 0;
-			width: 12.5%;
+      .instructions{
+        color: #000;
+        margin-top: $column-gutter;
+        text-align: center;
+        padding: 0 150px;
+      }
 		}
 			.binary__table{
 				margin: 0;
 				list-style: none;
-				padding: $column-gutter 0;
+
 				text-align: center;
-				padding-top: $column-gutter*2;
+
 				li {
-					padding: 0 $column-gutter/ 2;
+					padding: 0 $column-gutter/ 4;
 					margin-bottom: $column-gutter/ 4;
+          display: inline-block;
+          color: #000;
+          margin-right: 5px;
+          .turq{
+            color: $turq-dark;
+          }
 				}
+
 			}
 
 				.binary__table__highlight-option{
@@ -1082,9 +1127,9 @@
 	/* Modal Pitch Challenge -----------------------*/
 
 	.modal__pattern-challenge{
-		background-color: $off-white;
+		background-color: #fff;
 		// @include vendor(border-radius, 20px 20px 0 20px);
-		margin-left: $column-gutter * 5;
+
 		.locks{
 			margin-left: -25px;
 		}
@@ -1126,11 +1171,10 @@
 				color: $turq;
 			}
 	.clock-container{
-		background-color: $off-white;
 		padding: $column-gutter / 2;
 		position: absolute;
-		top: 40px;
-		left: -105px;
+		top: 60px;
+		left: 0;
 		@include vendor(border-radius, 50%);
 	}
 	.clock {
@@ -1263,9 +1307,9 @@
 	/* Modal Pitch Challenge -----------------------*/
 
 	.modal__path-challenge{
-		background-color: $off-white;
+		background-color: #fff;
 		// @include vendor(border-radius, 20px 20px 0 20px);
-		margin-left: $column-gutter * 5;
+
 		.locks{
 			margin-left: -25px;
 		}
@@ -1402,7 +1446,7 @@
 
 	/* Modal Pitch Challenge -----------------------*/
 	.modal__number-pattern-challenge{
-		background-color: $off-white;
+		background-color: $turq-dark;
 		// @include vendor(border-radius, 20px 20px 0 20px);
 
 		.row{
@@ -1418,6 +1462,10 @@
 		.action-btns{
 			position: relative;
 		}
+
+    .modal__content__heading{
+      color: #fff;
+    }
 	}
 
 	.pattern__content{
@@ -1456,14 +1504,14 @@
 		.input__logic{
 			background-color: $turq-light;
 			bottom: 47px;
-			right: 230px;
+			right: 250px;
 			@include vendor(border-radius, 50%);
 			color: $turq-dark;
 		}
 
 		.input__circle--1{
 			bottom: 113px;
-			left: 250px;
+			left: 271px;
 			width: 45px;
 			padding: 2px;
 			color: $turq-dark;
@@ -1471,7 +1519,7 @@
 
 		.input__circle--2{
 			bottom: 78px;
-			left: 250px;
+			left: 271px;
 			width: 45px;
 			padding: 2px;
 			color: $turq-dark;
@@ -1479,7 +1527,7 @@
 
 		.input__circle--3{
 			bottom: 78px;
-			right: 270px;
+			right: 290px;
 			width: 45px;
 			padding: 2px;
 			color: $turq-dark;
@@ -1487,23 +1535,23 @@
 
 		.input__circle--4{
 			bottom: 113px;
-			right: 270px;
+			right: 290px;
 			width: 45px;
 			padding: 2px;
 			color: $turq-dark;
 		}
 
 		.input__dialpad {
-			bottom: 31px;
-			left: 319px;
+			bottom: 29px;
+			left: 340px;
 			@include vendor(border-radius, 50%);
 			background-color: $off-white;
 			color: $turq-dark;
 		}
 
 		.input__square{
-			bottom: 87px;
-			right: 230px;
+			bottom: 85px;
+			right: 245px;
 			background-color: $off-white;
 			color: $turq;
 		}
@@ -1511,8 +1559,8 @@
 		.input__triangle{
 			background-color: $turq-dark;
 			color: $turq;
-			bottom: 114px;
-			right: 235px;
+			bottom: 112px;
+			right: 255px;
 			color: #fff;
 		}
 	}
@@ -1638,9 +1686,8 @@
 	/* Modal__code -----------------------*/
 	.modal__code-challenge{
 		background-color: $off-white;
+    background-color: #fff;
 		// @include vendor(border-radius, 20px 20px 0 20px);
-
-		margin-left: $column-gutter * 5;
 		.btn{
 			outline: none;
 			margin-right: 5px;
@@ -1674,17 +1721,17 @@
 	}
 
 	.modal__content__subheading--code{
-		color: $grey;
+		color: #000;
 		padding: 0 $column-gutter;
 		margin-left: $column-gutter;
 	}
 
 	/* Modal__vile -----------------------*/
 	.modal__vile-challenge{
-		background-color: $off-white;
+		background-color: #fff;
 		// @include vendor(border-radius, 20px 20px 0 20px);
 
-		margin-left: $column-gutter * 5;
+
 		.btn{
 			outline: none;
 			margin-right: 5px;
@@ -1698,14 +1745,16 @@
 	}
 
 	.viles-content{
-		padding-left: $column-gutter * 6;
+		text-align: center;
 	}
 
 	.modal__content__heading--vile{
 		margin-top: $column-gutter;
-		padding-left: $column-gutter * 2;
-		font-size: 18px;
+		@extend .font--reg;
+		font-size: 14px;
 		text-align: center;
+    padding: 0 100px;
+    margin-bottom: 30px;
 	}
 
 	.vile{
@@ -1780,9 +1829,9 @@
 	}
 
 	.vile-water-level{
-		width: 200px;
+		width: 159px;
 		background-color: $turq;
-		@include colors(8, 4, #66FFFF);
+
 	}
 
 	.vase{
@@ -1846,7 +1895,8 @@
 	/* Modal Badges -----------------------*/
 
 	.modal__badges{
-		background: url('../images/bg-stars.png') top right $turq-dark;
+		// background: url('../images/bg-stars.png') top right $turq-dark;
+    background-color: $turq-dark;
 		// @include vendor(border-radius, 20px 20px 0 20px);
 		min-height: 200px;
 
@@ -1856,7 +1906,7 @@
 			border-bottom: 0;
 			margin-bottom: 0;
 			padding: $column-gutter;
-			text-align: center;
+
 			@extend .font--light;
 			opacity: 0.8;
 		}
@@ -1870,9 +1920,10 @@
 			list-style: none;
 			color: $turq;
 			margin: 0;
-			margin-left: $column-gutter / 1.5;
+			// margin-left: $column-gutter / 1.5;
+      margin-left: 0;
 			padding: 0 $column-gutter $column-gutter;
-			text-align: center;
+			// text-align: center;
 
 			> li {
 				margin-bottom: $column-gutter / 3;
@@ -1928,16 +1979,16 @@
     }
 
 	.spacer-circuit {
-		height: 90px;
+
 	}
 
     .draggers {
-        width: 100%;
-        height: 75px;
-        background-color: #99cccc;
+
+
+        width: 75px;
         position: absolute;
-        top: 120px;
-        left: 0px;
+        top: 85px;
+        right: 0;
     }
 
 	.dragcenter {
@@ -1947,22 +1998,15 @@
 	}
 
     .dragblock {
-		float: left;
-        background-color: #009999;
-		width: 105px;
-		height: 75px;
-		border-left: 1px solid #ffffff;
-		border-right: 1px solid #ffffff;
-		padding-top: 15px;
+      background-color: #009999;
+  		width: 105px;
+  		height: 75px;
+      border: 1px solid #fff;
+      padding: 10px;
+      &:hover{
+        cursor: move;
+      }
     }
-
-	.dragblock:first-child {
-		border-left: 2px solid #ffffff;
-	}
-
-	.dragblock:last-child {
-		border-right: 2px solid #ffffff;
-	}
 
 	.question-block {
 

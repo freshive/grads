@@ -1,4 +1,4 @@
-h4.modal__content__heading.modal__content__heading--pattern
+h5.modal__content__heading.modal__content__heading--vile
 	| #{question.question}
 
 div(class="q-and-a__question q-and-a__question--#{question.name}")
@@ -7,12 +7,12 @@ div(class="q-and-a__question q-and-a__question--#{question.name}")
 ul.q-and-a__answers
 	each input in question.inputs
 		input(class="#{input}", placeholder="?")
-		
+
 
 .action-btns
-	button(disabled="disabled").btn.btn--submit 
-		| Submit 
-		span.questions-progress=progress 
+	button(disabled="disabled").btn.btn--submit
+		| Submit
+		span.questions-progress=progress
 		| /
-		span.questions-remaining=totalQuestions 
+		span.questions-remaining=totalQuestions
 		| &raquo;

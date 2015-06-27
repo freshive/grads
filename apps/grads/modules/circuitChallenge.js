@@ -33,13 +33,8 @@ CircuitChallenge.Views.Challenge = Backbone.View.extend({
 	render: function() {
 		var self = this;
 		this.$el.empty().append(circuitChallengeTemplate());
+    this.delegateEvents();
 		return this;
-	},
-
-	setTemplate: function() {
-		var content = this.questions[this.currentQuestion - 1].problem,
-			beautified = js_beautify(content, { indent_size: 4 });
-		this.editor.setValue(beautified);
 	},
 
 	dragstart: function (ev) {
@@ -54,7 +49,7 @@ CircuitChallenge.Views.Challenge = Backbone.View.extend({
 
 		//Hide dragged
 		var source = $.parseJSON(ev.originalEvent.dataTransfer.getData("Text"));
-		
+
 		this.$el.find('#' + source.id).hide();
 
 		//Insert item into circuit
@@ -78,19 +73,19 @@ CircuitChallenge.Views.Challenge = Backbone.View.extend({
 	},
 
 	insertItem: function (source, target) {
-	
+
 		var _self = this;
 		var targettype = target.data('type');
 		var targetId = target.attr('id');
 
-		
+
 
 		// Create replacements. Could do with refactoring but no time
 
 		switch (targetId)
 		{
 			case 'vert1':
-				
+
 				if (source.type == 'resistor') {
 					this.$el.find('.circuit').append('<div class="circuit-replace-vertical reswgv">' + source.text + '</div>');
 				} else {
@@ -101,7 +96,7 @@ CircuitChallenge.Views.Challenge = Backbone.View.extend({
 				{
 					_self.points += 1;
 				}
-				
+
 				break;
 			case 'vert2':
 
@@ -114,7 +109,7 @@ CircuitChallenge.Views.Challenge = Backbone.View.extend({
 				if (source.id === 'R3') {
 					_self.points += 1;
 				}
-				
+
 				break;
 			case 'hori1':
 
@@ -127,7 +122,7 @@ CircuitChallenge.Views.Challenge = Backbone.View.extend({
 				if (source.id === 'R2') {
 					_self.points += 1;
 				}
-				
+
 				break;
 			case 'hori2':
 
@@ -140,7 +135,7 @@ CircuitChallenge.Views.Challenge = Backbone.View.extend({
 				if (source.id === 'C2') {
 					_self.points += 1;
 				}
-				
+
 				break;
 			case 'hori3':
 
@@ -153,10 +148,10 @@ CircuitChallenge.Views.Challenge = Backbone.View.extend({
 				if (source.id === 'C1') {
 					_self.points += 1;
 				}
-				
+
 				break;
 		}
-		
+
 		this.setVolume();
 		this.$('.btn--reset').removeAttr('disabled');
 	},
@@ -185,7 +180,7 @@ CircuitChallenge.Views.Challenge = Backbone.View.extend({
 		this.$('.btn--submit').attr('disabled', 'disabled');
 		this.model.set('Answers', this.points);
 		return this.model.save().then(function() {
-			self.vent.trigger('challenge:submit');	
+			self.vent.trigger('challenge:submit');
 		});
 	},
 

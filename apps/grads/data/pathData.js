@@ -1,6 +1,6 @@
 module.exports = [
 	{
-		description: 'Find the path that adds up to 23',
+		description: 'Find the path that adds up to 23. Click on the blocks to select and begin your path. Hint, start at start.',
 		gameNumber: 1,
 		start: [5, 0],
 		end: [0, 6],
