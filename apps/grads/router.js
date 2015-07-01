@@ -12,6 +12,7 @@ var Backbone = require('backbone'),
 	PathChallenge = require('./modules/pathChallenge'),
 	CodeChallenge = require('./modules/codeChallenge'),
 	CircuitChallenge = require('./modules/circuitChallenge'),
+  PuzzleChallenge = require('./modules/puzzleChallenge'),
 	ChallengeResult = require('./modules/challengeResult');
 
 var ModalDescription = require('./modules/modalDescription');
@@ -22,6 +23,7 @@ var gameData = require('./data/binaryData'),
 	pathData = require('./data/pathData'),
 	numberPatternData = require('./data/numberPatternData'),
 	vileData = require('./data/vileData'),
+  puzzleData = require('./data/puzzleData'),
 	codeData = require('./data/codeData');
 
 var graduateModelData = require('./test/test_data/graduate');
@@ -43,6 +45,8 @@ var Router = Backbone.Router.extend({
 			this.navigate('intro', { trigger: true }); }, this);
 		this.vent.on('route:dashboard', function() {
 			this.navigate('dashboard', { trigger: true }); }, this);
+    this.vent.on('route:puzzle', function() {
+      this.navigate('puzzle', { trigger: true }); }, this);
 		this.vent.on('route:reloaddashboard', function() {
 			this.dashboard(); }, this);
 	},
@@ -54,7 +58,8 @@ var Router = Backbone.Router.extend({
 		'about-me': 'aboutMe',
 		'others': 'others',
 		'thinkertype': 'thinkertype',
-		'dashboard': 'dashboard'
+		'dashboard': 'dashboard',
+    'puzzle': 'puzzle'
 	},
 
 	index: function() {
@@ -63,9 +68,21 @@ var Router = Backbone.Router.extend({
 				model: this.graduate
 			}),
 			viewManager = this.viewManager;
-		
+
 		viewManager.switchView(view);
 	},
+
+  puzzle: function() {
+    if(!this.graduate.isLoggedIn()) return this.navigate('', { trigger: true });
+
+    var view = new PuzzleChallenge.Views.Challenge({
+        questions: puzzleData,
+        model: this.graduate
+      }),
+      viewManager = this.viewManager;
+
+    viewManager.switchView(view);
+  },
 
 	intro: function() {
 		if(!this.graduate.isLoggedIn()) return this.navigate('', { trigger: true });
@@ -83,13 +100,13 @@ var Router = Backbone.Router.extend({
 		var view = new Graduate.Views.Page({
 				page: 'about'
 			});
-		
+
 		this.viewManager.switchView(view).then(view.afterRender.bind(view));
 	},
 
 	aboutMe: function() {
 		if(!this.graduate.isLoggedIn()) return this.navigate('', { trigger: true });
-		
+
 		var view = new Graduate.Views.Page({
 				page: 'commerce',
 				thinkertype: this.graduate.get('ThinkerType'),
@@ -109,13 +126,13 @@ var Router = Backbone.Router.extend({
 					}
 				]
 			});
-		
+
 		this.viewManager.switchView(view).then(view.afterRender.bind(view));
 	},
 
 	others: function() {
 		//if(!this.graduate.isLoggedIn()) return this.navigate('', { trigger: true });
-		
+
 		var view = new Graduate.Views.Page({
 				page: 'others',
 				animations: [
@@ -134,7 +151,7 @@ var Router = Backbone.Router.extend({
 					}
 				]
 			});
-		
+
 		this.viewManager.switchView(view).then(view.afterRender.bind(view));
 	},
 
@@ -145,7 +162,7 @@ var Router = Backbone.Router.extend({
 				model: this.graduate
 			}),
 			viewManager = this.viewManager;
-		
+
 		viewManager.switchView(view);
 	},
 
@@ -154,7 +171,7 @@ var Router = Backbone.Router.extend({
 
 		var viewManager = this.viewManager,
 			view = new Dashboard.Views.Engineering({
-				
+
 				leaderboard: new Leaderboard.Views.Leaderboard({
 					model: this.graduate
 				}),
@@ -179,7 +196,7 @@ var Router = Backbone.Router.extend({
 
 				model: this.graduate
 			});
-		
+
 		viewManager.switchView(view).then(view.afterRender.bind(view));
 	},
 
@@ -211,7 +228,7 @@ var Router = Backbone.Router.extend({
 			break;
 		case 2:
 			challenges.push(
-				
+
 				new BinaryChallenge.Views.Challenge({
 					model: new ChallengeResult.Model(),
 					answer: gameData.commerce.answer,
@@ -226,7 +243,7 @@ var Router = Backbone.Router.extend({
 					questions: patternData
 				}),
 
-				
+
 				new PitchChallenge.Views.Challenge({
 					model: new ChallengeResult.Model(),
 					pitchData: pitchData,
@@ -239,7 +256,7 @@ var Router = Backbone.Router.extend({
 			break;
 		case 3:
 			challenges.push(
-				
+
 				new BinaryChallenge.Views.Challenge({
 					model: new ChallengeResult.Model(),
 					answer: gameData.compscience.answer,
@@ -254,7 +271,7 @@ var Router = Backbone.Router.extend({
 					codeData: codeData
 				}),
 
-				
+
 				new CodeChallenge.Views.Quine({
 					model: new ChallengeResult.Model()
 				})

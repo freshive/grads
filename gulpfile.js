@@ -30,7 +30,7 @@ var watchPaths = {
 };
 
 // Setup our livereload server
-gulp.task('livereload', function() {  
+gulp.task('livereload', function() {
     tinylr.listen(35729, function(err) {
         if(err) return console.log(err);
     });
@@ -73,7 +73,7 @@ var scripts = function() {
 			transform: ['jadeify2']
 		}))
 		.on('error', handleError)
-		.pipe(uglify())
+		//.pipe(uglify())
 		.pipe(gulp.dest(paths.dest + 'js'))
 		.pipe(refresh(tinylr));
 };
@@ -109,7 +109,7 @@ function handleError(err) {
 // Our test environment
 gulp.task('test', function() {
  	gulp.src(paths.test)
-    	.pipe(mocha({ 
+    	.pipe(mocha({
     		reporter: 'list',
     		globals: {
                 should: require('should')

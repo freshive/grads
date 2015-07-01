@@ -43,6 +43,7 @@
 	@import 'css-modules/nprogress';
 	@import 'css-modules/codemirror';
 
+
 /* ------------------------------------------
  * Animations
  -- declare reusable animations here
@@ -78,6 +79,7 @@
 		min-height: 100%;
 		color: $off-white;
 		letter-spacing: 1px;
+    background-color: darken($grey, 40%);
 		/*background-color: $turq-dark;*/
 	}
 
@@ -140,6 +142,7 @@
 			border: 2px solid $turq;
 			@include vendor(border-radius, 20px);
 			color: $turq;
+      outline: none;
 			&:disabled{
 				opacity: 0.5;
 			}
@@ -2232,3 +2235,69 @@
 
 
     /* Ends Modal Circuit Challenge */
+
+  .modal__puzzle-challenge{
+    background-color: $turq;
+    padding-bottom: 40px;
+  }
+
+  .puzzle-main-heading{
+    color: #fff;
+    text-align: center;
+    margin-top: 80px;
+  }
+
+  .puzzle-questions h5{
+    color: #fff;
+    font-size: 18px;
+    @extend .font--thin;
+  }
+
+  .puzzle-pieces{
+    text-align: center;
+    padding: 40px 0px;
+  }
+
+  .puzzle-piece{
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+    &:active{
+      top: 1px;
+    }
+  }
+
+  .puzzle-question{
+    background-color: $turq-dark;
+    margin-top: 80px;
+    padding: 20px 150px 20px 150px;
+    text-align: center;
+
+    h5{
+      text-transform: uppercase;
+    }
+  }
+
+  .puzzle-question-body {
+    font-size: 18px;
+    @extend .font--thin;
+  }
+
+  .puzzle-input{
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 20px;
+    width: 200px;
+    outline: none;
+    text-align: center;
+    &:active{
+      outline: none;
+    }
+  }
+
+  #puzzleCanvas{
+
+    background-color: $turq-dark;
+    margin-bottom: 40px;
+  }
