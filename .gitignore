@@ -12,5 +12,5 @@ results
 npm-debug.log
 node_modules
 bower_components
-
+config.js
 .DS_Store
