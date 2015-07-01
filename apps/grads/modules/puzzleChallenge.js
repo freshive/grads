@@ -64,7 +64,7 @@ PuzzleChallenge.Views.Challenge = Backbone.View.extend({
   submitQuestion:  function(ev) {
     var order = this.currentQuestion.order;
     var piece = this.$el.find('.puzzle-piece')[order - 1];
-    $(piece).attr('src', '/images/puzzle/0' + order + '02.png').addClass('piece-answered');
+    $(piece).attr('src', 'images/puzzle/0' + order + '02.png').addClass('piece-answered');
     this.currentAnswers.push(this.currentQuestion.answer);
 
     if(this.currentAnswers.length === this.totalQuestions)
