@@ -1,0 +1,577 @@
+.puzzle-questions
+  h2.puzzle-main-heading You have unlocked the final piece of the puzzle
+  h5.modal__content__heading.modal__content__heading--vile
+    | Click on a piece to move it, click again to release it. Use your mousewheel or the keys
+    b &nbsp;A' and B'&nbsp;
+    | to rotate the piece.
+    | Use they keys
+    b &nbsp;W' or 'S&nbsp;
+    | to send a piece behind or on top of other pieces
+
+#puzzleParent
+  canvas#puzzleCanvas(width="700", height="480")
+
+img#c-image(style="display:none;", src="images/bg-shoes.jpg")
+
+
+#puzzleRoot(style="display: none;")
+  #tabHeaderContainer(style='border:0;padding:0.5em;')
+  #puzzleTabHeaderSolve.tabHeaderOn Solve
+  #puzzleTabHeaderPresets.tabHeaderOff Presets
+  #puzzleTabHeaderCreate.tabHeaderOff Create
+  #puzzleTabHeaderShare.tabHeaderOff Share
+  #puzzleTabHeaderAbout.tabHeaderOff About
+  #tabContentContainer(style='border:1px solid #888;padding:4px')
+  #puzzleTabSolve(style='font-family: tahoma, sans-serif; font-size: 12px;')
+  div(style='padding:0.5em;')
+  #puzzleParent(style='color: black; width: 768px; height: 576px; background-color: rgb(136, 136, 136);')
+  canvas#puzzleCanvas(width='640', height='480', style='cursor: auto;')
+  p(style='margin-bottom:0')
+  | This Jigsaw Puzzle game requires that your browser supports the
+  a(target='_blank', href='http://en.wikipedia.org/wiki/Canvas_(HTML_element)') HTML5 <canvas> element
+  | . See
+  a(target='_blank', href='http://en.wikipedia.org/wiki/Canvas_(HTML_element)') Wikipedia
+  |  for information on which browsers support the
+  u HTML5 <canvas>
+  |  technology. Google code offers
+  a(href='http://code.google.com/p/explorercanvas/') ExplorerCanvas
+  |  to bring the functionality of the <canvas> tag to Internet Explorer, unfortunately, complex clipping regions are not supported, a requirement for this software.
+  p
+
+  small Thumbnail preview
+
+  div(style='margin-top:1em;')
+  input#puzzleShowEdges(style='width:12em;padding:3px;border:solid 1px #333;', type='button', value='Show edge pieces only', onclick='javascript:this.toggleEdges();')
+  input#puzzleShowPreview(style='width:12em;padding:3px;border:solid 1px #333;', type='button', value='Show preview', onclick='javascript:this.togglePreview();')
+  div(style='margin-top:1em;font-size:11px;color:#777')
+  | How to play:
+  ul(style='margin-top:0;')
+  li Click on a piece to move it, click again to release it
+  li
+  b Left
+  |  and
+  b right
+  |  arrows (or alternatively
+  b 'A'
+  |  or
+  b 'D'
+  | , or
+  b mousewheel
+  | ) to rotate a piece
+  li
+  b Up
+  |  and
+  b down
+  |  arrows (or alternatively
+  b 'W'
+  |  or
+  b 'S'
+  | ) to send a piece behind or on top of other pieces
+  li
+  b 'E'
+  |  to toggle on/off visibility of non-edge pieces
+  li
+  b 'Q'
+  |  to show/hide preview tile
+  li
+  b Space bar
+  |  to show/hide non-composite pieces (pieces made up of two or more atomic pieces)
+  #puzzleTabPresets(style='display: none;')
+  | Preferred screen size: 
+  select#puzzlePreferredSize
+  option(value='h600', selected='selected') 800×600
+  option(value='h768') 1024×768
+  option(value='h1024') 1280×1024
+  option(value='h1050') 1680×1050
+  option(value='h1200') 1920×1200
+  option(value='h1600') 2560×1600
+  br
+  | Preferred number of pieces: 
+  select#puzzlePreferredNumPieces
+  option(value='25', selected='selected') 25
+  option(value='50') 50
+  option(value='100') 100
+  option(value='200') 200
+  option(value='300') 300
+  option(value='500') 500
+  span(style='color:#aaa;font-size:10px') A high number of pieces can cause a delay at creation time.
+  br
+  br
+  | Click on a thumbnail below to create a jigsaw puzzle with the above settings.
+  hr(style='background-color:#ccc;height:1px;border:0')
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Best Map Ever of the Universe”
+  a(style='font-size:9px', href='https://commons.wikimedia.org/wiki/File:PIA16873-Planck-CMB-NASA-20130321.jpg') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='') ESA and the Planck Collaboration
+  br
+  span(style='color:gray') Source:
+  a(href='https://commons.wikimedia.org/wiki/File:PIA16873-Planck-CMB-NASA-20130321.jpg') Wikimedia Commons
+  br
+  span(style='color:gray') Added on:
+  |  Tuesday, March 26, 2013
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Handmade Tiles”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?image=13925') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=87') Vera Kratochvil
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Saturday, May 7, 2011
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Pier to the Lighthouse”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?image=3171&picture=pier-to-the-lighthouse') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=1275') Barb Ver Sluis
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Sunday, June 20, 2010
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Colorful houses”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?image=7223&picture=colorful-houses') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=1') Petr Kratochvil
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Sunday, June 20, 2010
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Bicycle Marathon”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?image=938&picture=bicycle-marathon') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=311') Vojko Kalan
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Sunday, June 20, 2010
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Primary School Students”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?image=7018&picture=primary-school-students') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=296') Peter Griffin
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Sunday, June 20, 2010
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Gathering clouds”
+  a(style='font-size:9px', href='images/full-20090106-lagoa-da-conceição.jpg') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='') Raymond Hill
+  br
+  span(style='color:gray') Source:
+  a(href='')
+  br
+  span(style='color:gray') Added on:
+  |  Thursday, January 7, 2010
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Praia dos Ingleses”
+  a(style='font-size:9px', href='') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='') Raymond Hill
+  br
+  span(style='color:gray') Source:
+  a(href='')
+  br
+  span(style='color:gray') Added on:
+  |  Sunday, December 6, 2009
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Marmot Paradise”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?picture=marmot-no-paraiso&image=1223') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=322') Robert Kraft
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Thursday, December 3, 2009
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Boats In Harbor”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?picture=boats-in-harbor&image=1002') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=355') Wesley Tyler
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Thursday, October 29, 2009
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Statue in corfu”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?picture=statue-in-corfu&image=2875') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=1') Petr Kratochvil
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Thursday, October 29, 2009
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Before the storm”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?picture=before-the-storm&image=286') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=1') Petr Kratochvil
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Thursday, October 22, 2009
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Parade route ”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?picture=parade-route&image=3287') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=296') Peter Griffin
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Thursday, October 22, 2009
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Akkanna Madanna Cave”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?picture=akkanna-madanna-cave&image=1289') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=417') mohan p
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Wednesday, October 21, 2009
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Closeup of a lion”
+  a(style='font-size:9px', href='http://www.webphotomart.com/stockphoto/55') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.webphotomart.com/photos.php?t=all&s=0&l=40&o=popular&lic=all&a=1') Benjamin Miller
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.webphotomart.com/') Web Photo Mart
+  br
+  span(style='color:gray') Added on:
+  |  Wednesday, October 21, 2009
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “City Tour Bus”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?picture=city-tour-bus&image=2158') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=947') Michael Drummond
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Tuesday, October 20, 2009
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Autumn Scene”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?picture=autumn-scene&image=1435') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=1') Petr Kratochvil
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Tuesday, October 20, 2009
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Sunken Garden”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?picture=sunken-garden&image=1001') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=355') Wesley Tyler
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Monday, October 19, 2009
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Hanging at the beach”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?picture=hanging-at-the-beach&image=3176') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=1275') Barb Ver Sluis
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Sunday, October 18, 2009
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Parrot”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?picture=parrot&image=870') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=33') Anna Cervova
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Saturday, October 17, 2009
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Street”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?picture=street&image=1345') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=1') Petr Kratochvil
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Friday, October 16, 2009
+  span(style='display:inline-block;width:250px;height:125px;vertical-align:top;margin:4px;padding:8px;font-size:11px;background-color:#eee')
+
+  br
+  span(style='color:gray') Title:
+  span(style='font-weight:bold') “Chinese money 100 rmb”
+  a(style='font-size:9px', href='http://www.publicdomainpictures.net/view-image.php?picture=money&image=1211') (Source...)
+  br
+  span(style='color:gray') Author:
+  a(href='http://www.publicdomainpictures.net/browse-author.php?a=296') Peter Griffin
+  br
+  span(style='color:gray') Source:
+  a(href='http://www.publicdomainpictures.net/') Public Domain Pictures.net
+  br
+  span(style='color:gray') Added on:
+  |  Thursday, October 15, 2009
+  #puzzleTabCreate(style='display: none;')
+  table(style='margin-top:1em;font-family:tahoma,sans-serif;font-size:12px')
+  tbody
+  tr
+  td(style='vertical-align:top') Cut 
+  td(style='vertical-align:top')
+  select#puzzleCut
+  option(value='classic', selected='selected') Classic
+  option(value='straight') Straight
+  option(value='tenon') Tenon
+  option(value='wave') Wave
+  tr
+  td(colspan='2')  
+  tr
+  td(style='white-space:nowrap;vertical-align:top') Screen size 
+  td(style='vertical-align:top')
+  select#puzzleScreenSize
+  option(value='h600') 800×600
+  option(value='h768') 1024×768
+  option(value='h1024', selected='selected') 1280×1024
+  option(value='h1050') 1680×1050
+  option(value='h1200') 1920×1200
+  span(style='color:#888')
+  | (Screen size determine work area size, which determine puzzle size, which influence the size of individual pieces)
+  tr
+  td(colspan='2')  
+  tr
+  td(style='white-space:nowrap;vertical-align:top') Suggested number of pieces 
+  td(style='vertical-align:top')
+  input#puzzlePieces(type='text', size='2', maxlength='3', value='16')
+  span(style='color:#888')
+  | (This number is used as a guide only, restrictions may apply. More pieces = smaller pieces)
+  tr
+  td(colspan='2')  
+  tr
+  td(style='white-space:nowrap;vertical-align:top') Complexity of puzzle pieces 
+  td(style='vertical-align:top')
+  select#puzzleComplexity
+  option(value='0') Regular
+  option(value='1', selected='selected') Slightly irregular
+  option(value='3') Moderatly irregular
+  option(value='8') Very irregular
+  tr
+  td(colspan='2')  
+  tr
+  td(style='white-space:nowrap;vertical-align:top') Whether pieces can be rotated 
+  td(style='vertical-align:top')
+  select#puzzleRotate
+  option(value='1') No rotation
+  option(value='4') Rotate 90°
+  option(value='24', selected='selected') Rotate fully
+  tr
+  td(colspan='2')  
+  tr
+  td(style='white-space:nowrap;vertical-align:top') URL of picture to use 
+  td(style='vertical-align:top')
+  input#puzzleURL(type='text', size='80', maxlength='256', value='')
+  span(style='color:#888')
+  | (Of interest:
+  a(target='_blank', href='http://en.wikipedia.org/wiki/Public_domain_image_resources#General_collections') general collections of public domain images
+  | )
+  tr
+  td(colspan='2')  
+  tr
+  td(style='color:#f77;', colspan='2')
+  | Beware: Clicking on the “Create” button will cause the current jigsaw puzzle in the “Solve” tab to be replaced. Also, note that the more pieces there are, the longer it will take to generate the jigsaw puzzle, so you might experience a delay.
+  tr
+  td(colspan='2')  
+  tr
+  td(style='white-space:nowrap;vertical-align:top')
+  input#puzzleCreate(style='width:9em;padding:3px;border:solid 1px #333;', type='button', value='Create', onclick="javascript:this.createPuzzle();self.location.hash='#';")
+  #puzzleTabShare(style='display: none;')
+  div(style='margin-top:1em;font-family:tahoma,sans-serif;font-size:12px')
+  p
+  | You can generate a
+  b permalink
+  |  of the current state of your puzzle (progress included!):
+  br
+  input#puzzleGeneratePermalink(style='width:9em;padding:3px;border:solid 1px #333;', type='button', value='Create permalink', onclick='javascript:this.generatePuzzlePermalink();')
+  input#puzzlePermalink(style='padding:3px;', type='text', size='100', readonly='readonly', value='', onclick='javascript:this.focus();this.select();')
+  p(style='display:none')
+  a#puzzleEmailTo(href='mailto:?subject=Have%20fun%20with%20this%20jigsaw%20puzzle!&body=http%3A%2F%2Fwww.raymondhill.net%2Fpuzzle-rhill%2Fjigsawpuzzle-rhill.php') Email this permalink to...
+  p
+  | Alternatively, you can generate a
+  b Jigsaw Puzzle Key
+  |  identifying uniquely the current state of your puzzle (progress included!):
+  br
+  input#puzzleGenerateKey(style='width:9em;padding:3px;border:solid 1px #333;', type='button', value='Generate key', onclick='javascript:this.generatePuzzleKey();')
+  input#puzzleKeyOut(style='padding:3px;', type='text', size='100', readonly='readonly', value='', onclick='javascript:this.focus();this.select();')
+  br
+  span(style='font-size:11px;color:#999')
+  | (Be sure to copy
+  b all
+  |  the characters!)
+  p
+  | You can save this key for later use, or you can send this key to a friend, who can then use it to generate the same puzzle on his side.
+  p
+  | A friend sent you a
+  b Jigsaw Puzzle Key
+  | ? Enter it here to generate his/her custom-made jigsaw puzzle in your “Solve” tab:
+  br
+  input#puzzleKeyInCreate(style='width:9em;padding:3px;border:solid 1px #333;', type='button', value='Create', onclick='javascript:this.createPuzzleFromKey();')
+  input#puzzleKeyIn(style='padding:3px;', type='text', size='100', value='')
+  br
+  span(style='font-size:11px;color:#999')
+  | (Be sure to paste
+  b all
+  |  the characters!)
+  p(style='white-space:nowrap;color:#f77;')
+  | Beware: Clicking on the “Create” button will cause the current jigsaw puzzle to be replaced (Your selected “Screen size” setting will be preserved though.)
+  #puzzleTabAbout(style='display: none;')
+  div(style='margin-top:1em;font-family:tahoma,sans-serif;font-size:12px')
+  p
+  | Jigsaw Puzzle by
+  a(href='/') Raymond Hill
+  | :
+  a(target='_top', href='http://www.raymondhill.net/puzzle-rhill/') Project's Home page
+  p
+  | I started this project as an experiment with the
+  a(href='http://en.wikipedia.org/wiki/Canvas_(HTML_element)') HTML5 canvas
+  |  element.
+  | It grew a bit bigger than what I had imagined, as I kept adding features, just for the fun and challenge of dealing with geometrical concepts.
+  | Also, for jigsaw puzzle fans out there, I am just happy to enable you to create your own puzzle, small or big, easy or hard, and with no strings attached (no ads, no questions asked, etc.)
+  p
+  | I am currently working on the next release in which I would like to allow fancy tiling.
+  p Portions of this software use the work of...
+  ul
+  li(style='margin-top:0.25em;')
+  | Images:
+  ul
+  li
+  a(target='_blank', href='http://www.publicdomainpictures.net/view-image.php?image=376') “Autumn Fruits”, by Petr Kratochvil
+  | : The default picture used in preview mode.
+  li
+  a(target='_blank', href='http://www.publicdomainpictures.net/view-image.php?image=2876') “Melbourne Australia”, by Michael Stirling
+  | : The default picture used in full mode.
+  li(style='margin-top:0.25em;')
+  | Sound effects:
+  ul(style='margin-bottom:0.5em;')
+  li
+
+  li(style='margin-top:0.25em;')
+  | Software:
+  ul
+  li
+

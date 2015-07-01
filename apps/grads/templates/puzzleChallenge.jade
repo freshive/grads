@@ -1,0 +1,13 @@
+.puzzle-question
+
+  //- h5.modal__content__heading.modal__content__heading--vile=question.heading
+
+  p.puzzle-question-body=question.question
+
+  input(type="text").puzzle-input
+
+  .action-btns
+    button(disabled="disabled").btn.btn--submit.submit-question
+      | Submit
+      span.questions-progress=progress
+      | &raquo;

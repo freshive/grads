@@ -1,0 +1,17 @@
+.curtain.curtain--top.curtain--show.curtain--animation
+
+.page__view__content
+  .row
+
+
+    .large-12.columns.puzzle__content
+
+      .puzzle-questions
+        h2.puzzle-main-heading Kickstart
+        h5.modal__content__heading.modal__content__heading--vile
+          | Click on each puzzle piece and correctly answer the questions to unlock the next piece of the puzzle.
+
+      .puzzle-pieces
+        each puzzle in Challenges
+          img(src="images/puzzle/0#{puzzle.order}01.png", data-puzzleorder="#{puzzle.order}").puzzle-piece
+
