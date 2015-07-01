@@ -73,7 +73,7 @@ var scripts = function() {
 			transform: ['jadeify2']
 		}))
 		.on('error', handleError)
-		//.pipe(uglify())
+		.pipe(uglify())
 		.pipe(gulp.dest(paths.dest + 'js'))
 		.pipe(refresh(tinylr));
 };
