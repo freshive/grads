@@ -1187,7 +1187,7 @@
 		background: white;
 		box-sizing: border-box;
 		border-radius: 100%;
-		border: 5px solid $turq-dark;
+		border: 5px solid #000;
 		top: 0;
 		left: 0;
 		right: 0;
@@ -1198,7 +1198,7 @@
 			position: absolute;
 			width: 3px;
 			height: 8px;
-			background: $turq-dark;
+			background: #000;
 			left: 0;
 			right: 0;
 			margin: 0 auto;
@@ -1207,7 +1207,7 @@
 			position: absolute;
 			width: 8px;
 			height: 3px;
-			background: $turq-dark;
+			background: #000;
 			top: 0;
 			bottom: 0;
 			right: 0;
@@ -1217,7 +1217,7 @@
 			position: absolute;
 			width: 3px;
 			height: 8px;
-			background: $turq-dark;
+			background: #000;
 			left: 0;
 			right: 0;
 			bottom: 0;
@@ -1227,7 +1227,7 @@
 			position: absolute;
 			width: 8px;
 			height: 3px;
-			background: $turq-dark;
+			background: #000;
 			top: 0;
 			bottom: 0;
 			left: 0;
@@ -1265,7 +1265,7 @@
 			&:before {
 				position: absolute;
 				content: "";
-				background: $turq-dark;
+				background: #000;
 				height: 25px;
 				width: 3px;
 				top: 30px;
@@ -1282,7 +1282,7 @@
 			&:before {
 				position: absolute;
 				content: "";
-				background: $turq-dark;
+				background: #000;
 				height: 40px;
 				width: 1px;
 				top: 30px;
@@ -1299,7 +1299,7 @@
 			&:before {
 				position: absolute;
 				content: "";
-				background: $turq-dark;
+				background: #000;
 				height: 45px;
 				width: 2px;
 				top: 25px;
@@ -1359,15 +1359,18 @@
 		font-size: 18px;
 		line-height: 18px;
 		margin-bottom: $column-gutter;
-		border-top: 1px solid #ccc;
 		position: relative;
-
+    border-spacing:0px;
 	}
+    .path-challenge__grid-items{
+
+    }
 
 		.path-challenge__grid-item{
 			padding: $column-gutter / 2 $column-gutter / 1.5;
 			@include vendor(transition, all .2s linear);
-			border: 1px solid #ccc;
+			border: 1px solid #000;
+      margin: -2px;
 			cursor: pointer;
 			position: relative;
 			background-color: rgba(255,255,255,0.2);
@@ -1379,7 +1382,7 @@
 
 		.path-challenge__grid-item--play{
 			background-color: rgba(255,255,255,0.8);
-			color: $turq;
+			color: #000;
 		}
 
 		.path-challenge__start-end{
@@ -1388,7 +1391,7 @@
 		}
 
 		.path-challenge__grid-item--active{
-			background-color: lighten(#ccc, 5%);
+			background-color: $turq;
 		}
 
 		.path-challenge__grid-item--completed{
@@ -2297,7 +2300,7 @@
   }
 
   #puzzleCanvas{
-
-    background-color: $turq-dark;
+    background-color: $turq;
+    border: 1px solid $turq-dark;
     margin-bottom: 40px;
   }

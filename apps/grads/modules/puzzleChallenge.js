@@ -28,6 +28,7 @@ PuzzleChallenge.Views.Challenge = Backbone.View.extend({
     this.progress = 1;
     this.currentAnswers = [];
     this.vent = vent;
+    window.view = this;
   },
 
   render: function() {
@@ -80,7 +81,7 @@ PuzzleChallenge.Views.Challenge = Backbone.View.extend({
       var puzzle = new Puzzle('puzzleParent', {
         src: 'images/puzzle.jpg',
         screenSize: 'h640',
-        backgroundColor: '#006666'
+        backgroundColor: '#009999'
       });
       setTimeout(function() {
         puzzle.init();
