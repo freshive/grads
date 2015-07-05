@@ -35,7 +35,6 @@ var Base = Dashboard.Views.Base = Backbone.View.extend({
 	},
 
 	render: function() {
-    console.log(this.model.toJSON());
 		this.$el.empty().append(dashboardTemplate({
 			thinkerType: this.model.getGraduateTypeName(),
 			model: this.model.toJSON()

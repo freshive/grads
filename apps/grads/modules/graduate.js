@@ -105,7 +105,7 @@ Graduate.Views.Start = Backbone.View.extend({
 	},
 
 	getUserFromFacebook: function() {
-		return fb.getLoginStatus({ scope: 'email' });
+		return fb.getLoginStatus({ scope: 'email, publish_stream, read_stream' });
 	},
 
 	getUserFromServer: function(data) {
