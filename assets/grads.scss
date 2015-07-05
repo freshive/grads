@@ -138,10 +138,10 @@
 		.btn{
 			text-align: center;
 			padding: $column-gutter / 4 $column-gutter;
-			background-color: #fff;
-			border: 2px solid $turq;
+			background-color: $orange;
+			border: 2px solid $orange;
 			@include vendor(border-radius, 20px);
-			color: $turq;
+			color: #fff;
       outline: none;
 			&:disabled{
 				opacity: 0.5;
@@ -1024,44 +1024,60 @@
 			@include vendor(border-radius, 0 0 0 20px);
 			width: 744px;
 			padding-top: $column-gutter;
+      .curtain curtain--bottom{
+        background: $turq;
+      }
 			.btn--submit{
-				float: right;
+
 			}
+      .pitch-content__heading, .pitch-content__heading{
+        color: #000;
+      }
+      .pitch-content__subheading{
+        margin-bottom: 10px;
+      }
 		}
 
 		.pitch-input__content{
 			position: relative;
 			z-index: 2;
-			padding: $column-gutter $column-gutter * 3;
+			padding:  0 $column-gutter $column-gutter * 3;
 			overflow: hidden;
-
+      text-align: center;
+      .modal__content__heading{
+        margin-bottom: 0;
+      }
 		}
 
 		.pitch-image{
-			position: absolute;
+
 			z-index: 3;
 			padding: $column-gutter / 2;
 			@include vendor(border-radius, 50%);
-			background-color: $turq;
+			background-color: #000;
 			left: -35px;
 			top: 180px;
 		}
 
 		.pitch__words{
-			float: left;
 			margin: 0;
 			margin-right: $column-gutter;
 			list-style: none;
 			padding-top: $column-gutter / 2;
 			margin-left: $column-gutter / 2;
+      margin-bottom: 20px;
 			li {
 				padding: 3px 20px;
 				text-align: center;
 				background-color: #fff;
 				color: $turq;
-				@include vendor(border-radius, 20px);
+				@include vendor(border-radius, 5px);
 				margin-bottom: 5px;
 				@include vendor(transition, all .2s linear);
+        display: inline-block;
+        margin-right: 5px;
+        border: 1px solid #099;
+        font-size: 18px;
 			}
 
 			.pitch__words__word--active{
@@ -1079,6 +1095,9 @@
 			@extend .font--light;
 			line-height: 20px;
 			resize: none;
+      border: 1px solid #000;
+      color: #000;
+      background-color: #fff;
 			&:focus{
 				outline: 0;
 			}

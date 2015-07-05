@@ -3,26 +3,23 @@ div.locks
 	img(src="images/lock-open.png").locks__lock
 	img(src="images/lock-open.png").locks__lock
 .row
-	
+
 
 	.large-12.columns.pitch__content
 
-		h3.modal__content__heading.modal__content__heading--pitch
-			| &raquo; The Pitch &laquo;
-
-		p.modal__content__subheading--pitch 
+		h5.modal__content__heading.modal__content__heading--vile
 			| Use the generated words below in a Pitch, post it to your Facebook wall, you will be measured on the amount of likes you’ve received in 24 hours.
-		
-		img.pitch-image(src="images/#{picture}.png")
 
-		
+
+
+
 
 		.pitch-input
-			
-			.curtain.curtain--bottom.curtain--show.curtain--animation.modal__content__curtain.curtain--turq
 
 			.pitch-input__content.cf
 				h3.pitch-content__heading=title
+
+				img.pitch-image(src="images/#{picture}.png")
 
 				p.pitch-content__subheading
 					| Using all 4 these generated words in a pitch no longer than 300 characters.
@@ -30,7 +27,7 @@ div.locks
 				ul.pitch__words
 					each word in words
 						li(data-word="#{word}").pitch__words__word=word
-				
+
 				textarea.pitch__input
 
 				.action-btns
