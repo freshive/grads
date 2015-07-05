@@ -249,7 +249,7 @@ var Router = Backbone.Router.extend({
 					pitchData: pitchData,
 					facebookApi: this.facebookApi,
 					graduate: this.graduate,
-					streamPerms: { scope: 'publish_stream, read_stream' }
+					streamPerms: { scope: 'status_update, read_stream' }
 				})
 
 			);
