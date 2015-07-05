@@ -39,6 +39,7 @@ PitchChallenge.Views.Challenge = Backbone.View.extend({
 			description: sd.DESCRIPTION
 		};
 		this.streamPerms = options.streamPerms;
+    this.view = this;
 	},
 
 	returnRandomNumber: function(end) {
