@@ -309,9 +309,13 @@
 		text-align: center;
 		&.title--home{
 			margin: 0;
+      margin: $column-gutter 0;
+		}
+
+    &.title-actual-home {
       margin-top: -15px;
       margin-bottom: 20px;
-		}
+    }
 	}
 		.title__main{
 			display: inline-block;
@@ -399,6 +403,7 @@
 	.logos .logo__image{
 		margin: 0;
 		margin-left: 5px;
+    max-width: 140px;
 	}
 
 		.logo--second{
