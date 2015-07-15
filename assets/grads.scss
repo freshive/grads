@@ -308,7 +308,9 @@
 	.title{
 		text-align: center;
 		&.title--home{
-			margin: $column-gutter 0;
+			margin: 0;
+      margin-top: -15px;
+      margin-bottom: 20px;
 		}
 	}
 		.title__main{
@@ -335,8 +337,8 @@
 		position: relative;
 		margin-bottom: 2.0rem;
 		cursor: pointer;
-    margin-bottom: 75px;
-    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-top: 10px;
 		&:active{
 			top: 1px;
 		}
