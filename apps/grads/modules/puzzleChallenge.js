@@ -53,19 +53,20 @@ PuzzleChallenge.Views.Challenge = Backbone.View.extend({
   },
 
   checkAnswer: function() {
-    var answer = $('.puzzle-input').val().toLowerCase();
+    this.$el.find('.error').hide();
+    // var answer = $('.puzzle-input').val().toLowerCase();
 
-    if(answer !== this.currentQuestion.answer[0].toLowerCase())
-      return this.$el.find('.submit-question').attr('disabled', 'disabled');
+    // if(answer !== this.currentQuestion.answer[0].toLowerCase())
+    //   return this.$el.find('.submit-question').attr('disabled', 'disabled');
 
-    this.$el.find('.submit-question').removeAttr('disabled');
+    // this.$el.find('.submit-question').removeAttr('disabled');
   },
 
   submitQuestion:  function(ev) {
     var answer = $('.puzzle-input').val().toLowerCase();
 
     if(answer !== this.currentQuestion.answer[0].toLowerCase())
-      return this.$el.find('.error').fadeIn()
+      return this.$el.find('.error').fadeIn();
 
     var order = this.currentQuestion.order;
     var piece = this.$el.find('.puzzle-piece')[order - 1];
