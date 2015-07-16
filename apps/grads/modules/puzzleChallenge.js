@@ -18,8 +18,7 @@ PuzzleChallenge.Views.Challenge = Backbone.View.extend({
 
   events: {
     'click .puzzle-piece': 'showQuestion',
-    'click .submit-question': 'submitQuestion',
-    'keyup .puzzle-input': 'checkAnswer'
+    'click .submit-question': 'submitQuestion'
   },
 
   initialize: function(options) {
@@ -63,6 +62,11 @@ PuzzleChallenge.Views.Challenge = Backbone.View.extend({
   },
 
   submitQuestion:  function(ev) {
+    var answer = $('.puzzle-input').val().toLowerCase();
+
+    if(answer !== this.currentQuestion.answer[0].toLowerCase())
+      return this.$el.find('.error').fadeIn()
+
     var order = this.currentQuestion.order;
     var piece = this.$el.find('.puzzle-piece')[order - 1];
     $(piece).attr('src', 'images/puzzle/0' + order + '02.png').addClass('piece-answered');

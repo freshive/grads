@@ -4,10 +4,12 @@
 
   p.puzzle-question-body=question.question
 
+  p.error(style='color: #FF0000;font-size: 14px;display: none;') Answer is incorrect
+
   input(type="text").puzzle-input
 
   .action-btns
-    button(disabled="disabled").btn.btn--submit.submit-question
+    button.btn.btn--submit.submit-question
       | Submit
       span.questions-progress=progress
       | &raquo;
