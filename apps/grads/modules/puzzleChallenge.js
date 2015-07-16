@@ -18,7 +18,8 @@ PuzzleChallenge.Views.Challenge = Backbone.View.extend({
 
   events: {
     'click .puzzle-piece': 'showQuestion',
-    'click .submit-question': 'submitQuestion'
+    'click .submit-question': 'submitQuestion',
+    'keyup .puzzle-input': 'checkAnswer'
   },
 
   initialize: function(options) {
